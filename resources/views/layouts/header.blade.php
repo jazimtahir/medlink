@@ -1,12 +1,12 @@
 <header class="main-header">
-    <a href="index-2.html" class="logo"> <!-- Logo -->
+    <a href="{{ route('dashboard') }}" class="logo"> <!-- Logo -->
         <span class="logo-mini">
                         <!--<b>A</b>H-admin-->
-                        <img src="{{ asset('assets/dist/img/mini-logo.png') }}" alt="">
+                        <h1>HealthCare</h1>
                     </span>
         <span class="logo-lg">
                         <!--<b>Admin</b>H-admin-->
-                        <img src="{{ asset('assets/dist/img/logo.png') }}" alt="">
+                        <h1>HealthCare</h1>
                     </span>
     </a>
     <!-- Header Navbar -->

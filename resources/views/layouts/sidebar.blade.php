@@ -8,14 +8,14 @@
             </div>
             <div class="info">
                 <h4>Welcome</h4>
-                <p>Mr. Alrazy</p>
+                <p>{{ Auth::user()->name }}</p>
             </div>
         </div>
 
         <!-- sidebar menu -->
         <ul class="sidebar-menu">
             <li class="active">
-                <a href="index-2.html"><i class="fa fa-hospital-o"></i><span>Dashboard</span>
+                <a href="{{ route('dashboard') }}"><i class="fa fa-hospital-o"></i><span>Dashboard</span>
                 </a>
             </li>
             <li class="treeview">
