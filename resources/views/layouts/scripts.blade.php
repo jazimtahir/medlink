@@ -57,7 +57,7 @@
             showMethod: 'slideDown',
             timeOut: 1000
         };
-        toastr.success('Responsive Admin Theme', 'Welcome to Health Admin');
+        toastr.success('Welcome Username', 'Successfully logged in');
 
     }, 1300);
 
@@ -72,7 +72,7 @@
         element: document.getElementById("map1"),
         projection: 'mercator',
         fills: {
-            defaultFill: "#009688",
+            defaultFill: "#0090ff",
             authorHasTraveledTo: "#fa0fa0"
         },
         data: {
@@ -109,16 +109,16 @@
                 {
                     label: "My First dataset",
                     data: [65, 59, 80, 81, 56, 55, 40, 25, 35, 51, 94, 16],
-                    borderColor: "#009688",
+                    borderColor: "#0090ff",
                     borderWidth: "0",
-                    backgroundColor: "#009688"
+                    backgroundColor: "#0090ff"
                 },
                 {
                     label: "My Second dataset",
                     data: [28, 48, 40, 19, 86, 27, 90, 91, 41, 25, 34, 47],
-                    borderColor: "#009688",
+                    borderColor: "#0090ff",
                     borderWidth: "0",
-                    backgroundColor: "#009688"
+                    backgroundColor: "#0090ff"
                 }
             ]
         },
@@ -142,7 +142,7 @@
                 {
                     label: "My First dataset",
                     data: [65, 59, 66, 45, 56, 55, 40],
-                    borderColor: "#00968866",
+                    borderColor: "#0090ff66",
                     borderWidth: "1",
                     backgroundColor: "rgba(0, 150, 136, 0.35)"
                 },
@@ -204,10 +204,10 @@
                 },
                 {
                     label: "My Second dataset",
-                    borderColor: "#009688",
+                    borderColor: "#0090ff",
                     borderWidth: "1",
-                    backgroundColor: "#009688",
-                    pointHighlightStroke: "#009688",
+                    backgroundColor: "#0090ff",
+                    pointHighlightStroke: "#0090ff",
                     data: [16, 32, 18, 26, 42, 33, 44, 24, 19, 16, 67, 71, 65]
                 }
             ]
