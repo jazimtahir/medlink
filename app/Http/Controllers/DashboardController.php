@@ -23,6 +23,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $role = auth()->user()->roles->pluck('name')[0] ?? '';
+        if($role !== request()->role) {
+            abort(403);
+        }
+        return view($role.'/dashboard');
     }
 }

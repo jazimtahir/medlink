@@ -60,15 +60,12 @@
         @include('layouts.sidebar')
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            @include('layouts.subheader')
+{{--            @include('layouts.subheader')--}}
             <!-- Main content -->
             @yield('content')
              <!-- /.content -->
 
         </div>
-{{--        <main class="py-4">--}}
-{{--            @yield('content')--}}
-{{--        </main>--}}
         @include('layouts.footer')
     </div>
 @include('layouts.scripts')

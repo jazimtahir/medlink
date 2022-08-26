@@ -8,7 +8,7 @@
             </div>
             <div class="info">
                 <h4>Welcome</h4>
-                <p>{{ Auth::user()->name }}</p>
+                <p>{{ Auth::user()->username }}</p>
             </div>
         </div>
 
@@ -18,16 +18,17 @@
                 <a href="{{ route('dashboard') }}"><i class="fa fa-hospital-o"></i><span>Dashboard</span>
                 </a>
             </li>
+            @role('admin')
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-user-md"></i><span>Doctor</span>
                     <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="forms_basic.html">Add Doctor</a></li>
-                    <li><a href="table.html">Doctor list</a></li>
+                    <li><a href="{{ route('admin.doctor.index') }}">Doctors List</a></li>
+                    <li><a href="{{ route('admin.doctor.create') }}">Add Doctor</a></li>
 
                 </ul>
             </li>
@@ -35,14 +36,15 @@
                 <a href="#">
                     <i class="fa fa-user"></i><span>Patient</span>
                     <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="add-patient.html">Add patient</a></li>
-                    <li><a href="pt-list.html">patient list</a></li>
+                    <li><a href="{{ route('admin.patient.index') }}">Patients List</a></li>
+                    <li><a href="{{ route('admin.patient.create') }}">Add Patient</a></li>
                 </ul>
             </li>
+            @endrole
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-sitemap"></i><span>Department</span>

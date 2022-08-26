@@ -57,7 +57,7 @@
             showMethod: 'slideDown',
             timeOut: 1000
         };
-        toastr.success('Welcome Username', 'Successfully logged in');
+        toastr.success('Welcome {{ auth()->user()->username }}', 'Successfully logged in');
 
     }, 1300);
 
