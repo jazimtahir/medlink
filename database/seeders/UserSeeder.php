@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Specialization;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -27,7 +28,8 @@ class UserSeeder extends Seeder
             'gender' => 'M',
             'is_active' => 1,
             'is_verified' => 1,
-            'password' => Hash::make('.')
+            'password' => Hash::make('.'),
+            'dob' => now()->subYear(25),
         ]);
         $user->assignRole(Role::findByName('admin'));
 
@@ -40,7 +42,8 @@ class UserSeeder extends Seeder
             'gender' => 'M',
             'is_active' => 1,
             'is_verified' => 1,
-            'password' => Hash::make('.')
+            'password' => Hash::make('.'),
+            'dob' => now()->subYear(23),
         ]);
         $user->assignRole(Role::findByName('admin'));
 
@@ -53,11 +56,13 @@ class UserSeeder extends Seeder
             'gender' => 'M',
             'is_active' => 1,
             'is_verified' => 1,
-            'password' => Hash::make('.')
+            'password' => Hash::make('.'),
+            'dob' => now()->subYear(30),
         ]);
         $user->assignRole(Role::findByName('doctor'));
         Doctor::create([
             'user_id' => $user->id,
+            'specialization_id' => Specialization::first()->id,
             'salutation' => 'Dr',
             'professional_statement' => 'I am a Doctor practicing from 2010.',
             'fee' => 3000,
@@ -73,7 +78,8 @@ class UserSeeder extends Seeder
             'gender' => 'F',
             'is_active' => 1,
             'is_verified' => 1,
-            'password' => Hash::make('.')
+            'password' => Hash::make('.'),
+            'dob' => now()->subYear(35),
         ]);
         $user->assignRole(Role::findByName('patient'));
         Patient::create([

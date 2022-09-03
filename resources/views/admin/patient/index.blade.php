@@ -9,7 +9,7 @@
             <h1> Patients List</h1>
             <small> Lists all registered patients</small>
             <ol class="breadcrumb hidden-xs">
-                <li><a href="{{ route('dashboard') }}"><i class="pe-7s-home"></i> Home</a></li>
+                <li><a href="{{ route('patinet.dashboard') }}"><i class="pe-7s-home"></i> Home</a></li>
                 <li class="active">Patients List</li>
             </ol>
         </div>
@@ -20,7 +20,7 @@
                 <div class="panel panel-bd">
                     <div class="panel-heading">
                         <div class="btn-group">
-                            <a class="btn btn-success" href="{{ route('admin.doctor.create') }}"> <i class="fa fa-plus"></i> Add Doctor
+                            <a class="btn btn-success" href="{{ route('admin.patient.create') }}"> <i class="fa fa-plus"></i> Add Patient
                             </a>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                                                 <input type="radio" name="radioGroup">
                                                 <label>{{ $count }}</label>
                                             </td>
-                                            <td><img src="" class="img-circle" alt="User Image" height="50" width="50"></td>
+                                            <td><img src="{{ $patient->getImg() }}" class="img-circle" alt="User Image" height="35" width="35"></td>
                                             <td>{{ $patient->username }}</td>
                                             <td>{{ $patient->first_name }}</td>
                                             <td>{{ $patient->last_name }}</td>

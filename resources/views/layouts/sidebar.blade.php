@@ -8,14 +8,14 @@
             </div>
             <div class="info">
                 <h4>Welcome</h4>
-                <p>{{ Auth::user()->username }}</p>
+                <p>{{ auth()->user()->username }}</p>
             </div>
         </div>
 
         <!-- sidebar menu -->
         <ul class="sidebar-menu">
             <li class="active">
-                <a href="{{ route('dashboard') }}"><i class="fa fa-hospital-o"></i><span>Dashboard</span>
+                <a href=""><i class="fa fa-hospital-o"></i><span>Dashboard</span>
                 </a>
             </li>
             @role('admin')

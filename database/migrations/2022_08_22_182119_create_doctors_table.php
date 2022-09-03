@@ -18,6 +18,7 @@ return new class extends Migration
 //            $table->unsignedBigInteger('user_id');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
 //            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreignId('specialization_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('salutation')->nullable();
             $table->string('professional_statement')->nullable();
             $table->string('fee')->nullable();

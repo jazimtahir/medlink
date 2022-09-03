@@ -50,16 +50,16 @@
 <script>
     "use strict"; // Start of use strict
     // notification
-    setTimeout(function () {
-        toastr.options = {
-            closeButton: true,
-            progressBar: true,
-            showMethod: 'slideDown',
-            timeOut: 1000
-        };
-        toastr.success('Welcome {{ auth()->user()->username }}', 'Successfully logged in');
+    {{--setTimeout(function () {--}}
+    {{--    toastr.options = {--}}
+    {{--        closeButton: true,--}}
+    {{--        progressBar: true,--}}
+    {{--        showMethod: 'slideDown',--}}
+    {{--        timeOut: 1000--}}
+    {{--    };--}}
+    {{--    toastr.success('Welcome {{ auth()->user()->username }}', 'Successfully logged in');--}}
 
-    }, 1300);
+    {{--}, 1300);--}}
 
     //counter
     $('.count-number').counterUp({

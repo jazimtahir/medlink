@@ -18,14 +18,16 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'first_name',
-        'last_name',
-        'username',
-        'email',
-        'phone',
-        'password',
-    ];
+//    protected $fillable = [
+//        'first_name',
+//        'last_name',
+//        'username',
+//        'email',
+//        'phone',
+//        'gender',
+//        'password',
+//    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -52,5 +54,9 @@ class User extends Authenticatable
 
     public function patient() {
         return $this->hasOne(Patient::class);
+    }
+
+    public function getImg() {
+        return ($this->image) ? asset('storage/images/' . $this->image) : asset('assets/images/default.png');
     }
 }

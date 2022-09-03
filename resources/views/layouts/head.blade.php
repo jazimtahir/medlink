@@ -47,4 +47,5 @@
     <!--<link href="assets/dist/css/stylehealth-rtl.css" rel="stylesheet" type="text/css"/>-->
     <!-- End Theme Layout Style
     =====================================================================-->
+    <link href="{{ asset('assets/custom.css') }}" rel="stylesheet" type="text/css"/>
 </head>

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone')->unique()->nullable();
             $table->enum('gender', ['M', 'F', 'T']);
             $table->string('image')->nullable();
+            $table->date('dob');
             $table->boolean('is_active');
             $table->boolean('is_verified');
             $table->timestamp('email_verified_at')->nullable();

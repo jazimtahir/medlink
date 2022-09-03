@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
+use App\Models\Specialization;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -21,12 +23,16 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function admin()
     {
-        $role = auth()->user()->roles->pluck('name')[0] ?? '';
-        if($role !== request()->role) {
-            abort(403);
-        }
-        return view($role.'/dashboard');
+        return view('admin/dashboard');
+    }
+    public function doctor()
+    {
+        return view('doctor/dashboard');
+    }
+    public function patient()
+    {
+        return view('patient/dashboard');
     }
 }

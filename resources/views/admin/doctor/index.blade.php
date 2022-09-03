@@ -3,13 +3,13 @@
 @section('content')
     <section class="content-header">
         <div class="header-icon">
-            <i class="pe-7s-box1"></i>
+            <i class="pe-7s-note2"></i>
         </div>
         <div class="header-title">
             <h1> Doctors List</h1>
             <small> Lists all registered doctors</small>
             <ol class="breadcrumb hidden-xs">
-                <li><a href="{{ route('dashboard') }}"><i class="pe-7s-home"></i> Home</a></li>
+                <li><a href="{{ route('admin.dashboard') }}"><i class="pe-7s-home"></i> Home</a></li>
                 <li class="active">Doctors List</li>
             </ol>
         </div>
@@ -57,179 +57,179 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>S No.</th>
                                     <th>Image</th>
                                     <th>Username</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Department</th>
+                                    <th>Specialization</th>
                                     <th>Update</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <?php $count = 0; ?>
                                     @foreach($doctors as $doctor)
+                                        <?php $count++; ?>
                                         <tr>
                                             <td>
                                                 <input type="radio" name="radioGroup">
-                                                <label>{{ $doctor->id }}</label>
+                                                <label>{{ $count }}</label>
                                             </td>
-                                            <td><img src="" class="img-circle" alt="User Image" height="50" width="50"></td>
+                                            <td><img src="{{ $doctor->getImg() }}" class="img-circle" alt="User Image" height="35" width="35"></td>
                                             <td>{{ $doctor->username }}</td>
                                             <td>{{ $doctor->first_name }}</td>
                                             <td>{{ $doctor->last_name }}</td>
                                             <td>{{ $doctor->email }}</td>
                                             <td>{{ $doctor->phone }}</td>
-                                            <td>user->doctor->department</td>
+                                            <td>{{ $doctor->doctor->specialization->name ?? '' }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#ordine"><i class="fa fa-pencil"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#ordine"><i class="fa fa-trash-o"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="page-nation text-right">
-                            <ul class="pagination pagination-large">
-                                <li class="disabled"><span>«</span></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li class="disabled"><span>...</span></li><li>
-                                <li><a rel="next" href="#">Next</a></li>
-                            </ul>
-                        </div>
+                                                <a class="btn btn-info btn-xs bg-yellow" href="{{ route('admin.doctor.show', [$doctor->id]) }}"><i class="fa fa-eye"></i>
+                                                </a>
+                                                <a class="btn btn-info btn-xs" href="{{ route('admin.doctor.edit', [$doctor->id]) }}"><i class="fa fa-pencil"></i>
+                                                </a>
+                                                <a href="{{ route('admin.doctor.destroy', [$doctor->id]) }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure?')"><i class="fa fa-trash-o"></i>
+                                                </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="page-nation text-right">
+                                <ul class="pagination pagination-large">
+                                    {{ $doctors->links() }}
+                                </ul>
+                            </div>
 
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section> <!-- /.content -->
-    <div id="ordine" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Update Doctor</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="panel panel-bd">
-                        <div class="panel-body">
-                            <form class="col-sm-12">
-                                <div class="form-group">
-                                    <label>First Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter First Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter last Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" placeholder="Enter Email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Enter password" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Designation</label>
-                                    <input type="text" class="form-control" placeholder="Enter Designation" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Department</label>
-                                    <select class="form-control" name="select" size="1">
-                                        <option selected class="test">Neurology</option>
-                                        <option>Gynaecology</option>
-                                        <option>Microbiology</option>
-                                        <option>Pharmacy</option>
-                                        <option>Neonatal</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <textarea class="form-control" id="exampleTextarea" rows="3" required></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="number" class="form-control" placeholder="Enter Phone number" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Mobile</label>
-                                    <input type="number" class="form-control" placeholder="Enter Mobile" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Picture upload</label>
-                                    <input type="file" name="picture" id="picture">
-                                    <input type="hidden" name="old_picture">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Short Biography</label>
-                                    <textarea id="some-textarea" class="form-control" rows="6" placeholder="Enter text ..."></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Specialist</label>
-                                    <input type="text" class="form-control" placeholder="Specialist" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Date of Birth</label>
-                                    <input name="date_of_birth" class="datepicker form-control hasDatepicker" type="text" placeholder="Date of Birth">
-                                </div>
-                                <div class="form-group">
-                                    <label>Blood group</label>
-                                    <select class="form-control">
-                                        <option>A+</option>
-                                        <option>AB+</option>
-                                        <option>O+</option>
-                                        <option>AB-</option>
-                                        <option>B+</option>
-                                        <option>A-</option>
-                                        <option>B-</option>
-                                        <option>O-</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Sex</label><br>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="sex" value="1" checked="checked">Male</label>
-                                    <label class="radio-inline"><input type="radio" name="sex" value="0" >Female</label>
-
-                                </div>
-                                <div class="form-check">
-                                    <label>Status</label><br>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="status" value="1" checked="checked">Active</label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="status" value="0" >Inctive
-                                    </label>
-                                </div>
-
-                                <div class="reset button">
-                                    <a href="#" class="btn btn-primary">Reset</a>
-                                    <a href="#" class="btn btn-success">Save</a>
-                                </div>
-                            </form>
                         </div>
                     </div>
 
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
 
-        </div>
-    </div>
-@endsection
+            </div>
+        </section> <!-- /.content -->
+{{--        <div id="ordine" class="modal fade" role="dialog">--}}
+{{--            <div class="modal-dialog">--}}
+
+{{--                <!-- Modal content-->--}}
+{{--                <div class="modal-content ">--}}
+{{--                    <div class="modal-header">--}}
+{{--                        <button type="button" class="close" data-dismiss="modal">×</button>--}}
+{{--                        <h4 class="modal-title">Update Doctor</h4>--}}
+{{--                    </div>--}}
+{{--                    <div class="modal-body">--}}
+{{--                        <div class="panel panel-bd">--}}
+{{--                            <div class="panel-body">--}}
+{{--                                <form class="col-sm-12">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>First Name</label>--}}
+{{--                                        <input type="text" class="form-control" placeholder="Enter First Name" required>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Last Name</label>--}}
+{{--                                        <input type="text" class="form-control" placeholder="Enter last Name" required>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Email</label>--}}
+{{--                                        <input type="email" class="form-control" placeholder="Enter Email" required>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Password</label>--}}
+{{--                                        <input type="password" class="form-control" placeholder="Enter password" required>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Designation</label>--}}
+{{--                                        <input type="text" class="form-control" placeholder="Enter Designation" required>--}}
+{{--                                    </div>--}}
+
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Department</label>--}}
+{{--                                        <select class="form-control" name="select" size="1">--}}
+{{--                                            <option selected class="test">Neurology</option>--}}
+{{--                                            <option>Gynaecology</option>--}}
+{{--                                            <option>Microbiology</option>--}}
+{{--                                            <option>Pharmacy</option>--}}
+{{--                                            <option>Neonatal</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Address</label>--}}
+{{--                                        <textarea class="form-control" id="exampleTextarea" rows="3" required></textarea>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Phone</label>--}}
+{{--                                        <input type="number" class="form-control" placeholder="Enter Phone number" required>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Mobile</label>--}}
+{{--                                        <input type="number" class="form-control" placeholder="Enter Mobile" required>--}}
+{{--                                    </div>--}}
+
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Picture upload</label>--}}
+{{--                                        <input type="file" name="picture" id="picture">--}}
+{{--                                        <input type="hidden" name="old_picture">--}}
+{{--                                    </div>--}}
+
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Short Biography</label>--}}
+{{--                                        <textarea id="some-textarea" class="form-control" rows="6" placeholder="Enter text ..."></textarea>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Specialist</label>--}}
+{{--                                        <input type="text" class="form-control" placeholder="Specialist" required>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Date of Birth</label>--}}
+{{--                                        <input name="date_of_birth" class="datepicker form-control hasDatepicker" type="text" placeholder="Date of Birth">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Blood group</label>--}}
+{{--                                        <select class="form-control">--}}
+{{--                                            <option>A+</option>--}}
+{{--                                            <option>AB+</option>--}}
+{{--                                            <option>O+</option>--}}
+{{--                                            <option>AB-</option>--}}
+{{--                                            <option>B+</option>--}}
+{{--                                            <option>A-</option>--}}
+{{--                                            <option>B-</option>--}}
+{{--                                            <option>O-</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Sex</label><br>--}}
+{{--                                        <label class="radio-inline">--}}
+{{--                                            <input type="radio" name="sex" value="1" checked="checked">Male</label>--}}
+{{--                                        <label class="radio-inline"><input type="radio" name="sex" value="0" >Female</label>--}}
+
+{{--                                    </div>--}}
+{{--                                    <div class="form-check">--}}
+{{--                                        <label>Status</label><br>--}}
+{{--                                        <label class="radio-inline">--}}
+{{--                                            <input type="radio" name="status" value="1" checked="checked">Active</label>--}}
+{{--                                        <label class="radio-inline">--}}
+{{--                                            <input type="radio" name="status" value="0" >Inctive--}}
+{{--                                        </label>--}}
+{{--                                    </div>--}}
+
+{{--                                    <div class="reset button">--}}
+{{--                                        <a href="#" class="btn btn-primary">Reset</a>--}}
+{{--                                        <a href="#" class="btn btn-success">Save</a>--}}
+{{--                                    </div>--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+{{--                    <div class="modal-footer">--}}
+{{--                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--            </div>--}}
+{{--        </div>--}}
+    @endsection

@@ -47,6 +47,9 @@ class PatientController extends Controller
 
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->patient->delete();
+        $user->delete();
+        return back();
     }
 }

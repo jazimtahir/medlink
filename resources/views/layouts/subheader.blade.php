@@ -14,7 +14,7 @@
         <h1> Dashboard</h1>
         <small> Dashboard features</small>
         <ol class="breadcrumb hidden-xs">
-            <li><a href="{{ route('dashboard') }}"><i class="pe-7s-home"></i> Home</a></li>
+            <li><a href=""><i class="pe-7s-home"></i> Home</a></li>
             <li class="active">Dashboard</li>
         </ol>
     </div>
