@@ -52,6 +52,8 @@ class PatientController extends Controller
             $userData['image'] = $imagePath;
         }
 
+        $userData['password'] = Hash::make($userData['password']);
+
         $user = User::create($userData);
         $user->assignRole(Role::findByName('patient'));
 

@@ -55,10 +55,14 @@ class DoctorController extends Controller
         unset($userData['specialization_id']);
 
         //store image
-        $imageName = $userData['username'].''.time().'.'.$request->image->extension();
-        $imagePath = 'profile/'.$imageName;
-        $request->image->storeAs('public/images', $imagePath);
-        $userData['image'] = $imagePath;
+        if ($request->image) {
+            $imageName = $userData['username'].''.time().'.'.$request->image->extension();
+            $imagePath = 'profile/'.$imageName;
+            $request->image->storeAs('public/images', $imagePath);
+            $userData['image'] = $imagePath;
+        }
+
+        $userData['password'] = Hash::make($userData['password']);
 
         $user = User::create($userData);
         $user->assignRole(Role::findByName('doctor'));
