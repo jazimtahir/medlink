@@ -22,15 +22,19 @@
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0 dark:text-white">
-            @if (Route::has('login'))
-                <div class="">
-                    <a href="{{ route('login') }}" class="p-6 underline">Log in</a>
+            @auth
+                <a href="{{ url(auth()->user()->roles->pluck('name')[0].'/dashboard') }}" class="p-6 underline">Dashboard</a>
+            @else
+                @if (Route::has('login'))
+                    <div class="">
+                        <a href="{{ route('login') }}" class="p-6 underline">Log in</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="p-6 underline">Register</a>
-                    @endif
-                </div>
-            @endif
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="p-6 underline">Register</a>
+                        @endif
+                    </div>
+                @endif
+            @endauth
         </div>
     </body>
 </html>

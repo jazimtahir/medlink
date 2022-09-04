@@ -23,6 +23,11 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function index()
+    {
+        $role = auth()->user()->roles->pluck('name')[0];
+        $this->$role();
+    }
     public function admin()
     {
         return view('admin/dashboard');

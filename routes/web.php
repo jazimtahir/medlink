@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => ['web', 'auth']], function() {
+    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 });
