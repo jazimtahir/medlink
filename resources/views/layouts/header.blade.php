@@ -17,57 +17,6 @@
         </a>
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <!-- Orders -->
-                <li class="dropdown messages-menu">
-                    <a href="#" class="dropdown-toggle admin-notification" data-toggle="dropdown">
-                        <i class="pe-7s-cart"></i>
-                        <span class="label label-primary">5</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header"><i class="fa fa-shopping-basket"></i> 4 Orders</li>
-                        <li>
-                            <ul class="menu">
-                                <li ><!-- start Order -->
-                                    <a href="#" class="border-gray">
-                                        <div class="pull-left">
-                                            <img src="{{ asset('assets/dist/img/stethescope.png') }}" class="img-thumbnail" alt="User Image"></div>
-                                        <h4>stethescope</h4>
-                                        <p><strong>total item:</strong> 21
-                                        </p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="border-gray">
-                                        <div class="pull-left">
-                                            <img src="{{ asset('assets/dist/img/nocontrol.png') }}" class="img-thumbnail" alt="User Image"></div>
-                                        <h4>Nocontrol</h4>
-                                        <p><strong>total item:</strong> 11
-                                        </p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="border-gray">
-                                        <div class="pull-left">
-                                            <img src="{{ asset('assets/dist/img/lab.png') }}" class="img-thumbnail" alt="User Image"></div>
-                                        <h4>lab</h4>
-                                        <p><strong>total item:</strong> 16
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-list">
-                                    <a href="#" class="border-gray">
-                                        <div class="pull-left">
-                                            <img src="{{ asset('assets/dist/img/therm.jpg') }}" class="img-thumbnail" alt="User Image"></div>
-                                        <h4>Pressure machine</h4>
-                                        <p><strong>total item:</strong> 10
-                                        </p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#"> See all Orders <i class="fa fa-arrow-right"></i></a></li>
-                    </ul>
-                </li>
                 <!-- Messages -->
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -252,12 +201,12 @@
                 <li class="dropdown dropdown-user admin-user">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <div class="user-image">
-                            <img src="{{ asset('assets/dist/img/avatar4.png') }}" class="img-circle" height="40" width="40" alt="User Image">
+                            <img src="{{ auth()->user()->getImg() }}" class="img-circle" height="40" width="40" alt="User Image">
                         </div>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="profile.html"><i class="fa fa-users"></i> User Profile</a></li>
-                        <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                        <li><a href="{{ route('profile') }}"><i class="fa fa-users"></i> Profile</a></li>
+{{--                        <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>--}}
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                     document.getElementById('logout-form').submit();">

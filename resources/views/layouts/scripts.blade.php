@@ -44,6 +44,9 @@
 =====================================================================-->
 <!-- Dashboard js -->
 <script src="{{ asset('assets/dist/js/custom.js') }}" type="text/javascript"></script>
+<!-- Modal js -->
+<script src="{{ asset('assets/plugins/modals/classie.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/plugins/modals/modalEffects.js') }}" type="text/javascript"></script>
 
 <!-- End Theme label Script
 =====================================================================-->

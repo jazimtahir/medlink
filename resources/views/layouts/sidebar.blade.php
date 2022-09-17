@@ -4,7 +4,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="image pull-left">
-                <img src="{{ asset('assets/dist/img/avatar5.png') }}" class="img-circle" alt="User Image">
+                <img src="{{ auth()->user()->getImg() }}" class="img-circle" alt="User Image">
             </div>
             <div class="info">
                 <h4>Welcome</h4>
@@ -14,12 +14,12 @@
 
         <!-- sidebar menu -->
         <ul class="sidebar-menu">
-            <li class="active">
-                <a href=""><i class="fa fa-hospital-o"></i><span>Dashboard</span>
+            <li class="@if(request()->routeIs('dashboard') || request()->routeIs('*.dashboard')) active @else treeview @endif">
+                <a href="{{ route('dashboard') }}"><i class="fa fa-hospital-o"></i><span>Dashboard</span>
                 </a>
             </li>
             @role('admin')
-            <li class="treeview">
+            <li class="@if(request()->routeIs('admin.doctor.*')) active @else treeview @endif">
                 <a href="#">
                     <i class="fa fa-user-md"></i><span>Doctor</span>
                     <span class="pull-right-container">
@@ -32,7 +32,7 @@
 
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="@if(request()->routeIs('admin.patient.*')) active @else treeview @endif">
                 <a href="#">
                     <i class="fa fa-user"></i><span>Patient</span>
                     <span class="pull-right-container">
@@ -45,6 +45,7 @@
                 </ul>
             </li>
             @endrole
+            @role('doctor')
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-sitemap"></i><span>Department</span>
@@ -221,6 +222,7 @@
                     <li><a href="layout_collapsed_sidebar.html">collapsed layout</a></li>
                 </ul>
             </li>
+            @endrole
         </ul>
     </div> <!-- /.sidebar -->
 </aside>

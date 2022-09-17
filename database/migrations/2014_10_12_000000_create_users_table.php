@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('phone')->unique()->nullable();
+            $table->text('bio')->nullable();
+            $table->text('address')->nullable();
             $table->enum('gender', ['M', 'F', 'T']);
             $table->string('image')->nullable();
             $table->date('dob');

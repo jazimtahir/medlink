@@ -20,5 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => ['web', 'auth']], function() {
-    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
+    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+    Route::put('profile', [App\Http\Controllers\UserController::class, 'updateProfile'])->name('profile.update');
 });

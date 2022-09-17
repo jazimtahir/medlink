@@ -20,7 +20,7 @@
                 <div class="panel panel-bd cardbox">
                     <div class="panel-body">
                         <div class="statistic-box">
-                            <h2><span class="count-number">15</span>
+                            <h2><span class="count-number">{{ $activeDoctors }}</span>
                             </h2>
                         </div>
                         <div class="items pull-left">
@@ -34,7 +34,7 @@
                 <div class="panel panel-bd cardbox">
                     <div class="panel-body">
                         <div class="statistic-box">
-                            <h2><span class="count-number">19</span>
+                            <h2><span class="count-number">{{ $activePatients }}</span>
                             </h2>
                         </div>
                         <div class="items pull-left">
@@ -48,7 +48,7 @@
                 <div class="panel panel-bd cardbox">
                     <div class="panel-body">
                         <div class="statistic-box">
-                            <h2><span class="count-number">05</span>
+                            <h2><span class="count-number">{{ $totalDoctors }}</span>
                             </h2>
                         </div>
                         <div class="items pull-left">
@@ -62,7 +62,7 @@
                 <div class="panel panel-bd cardbox">
                     <div class="panel-body">
                         <div class="statistic-box">
-                            <h2><span class="count-number">9</span>
+                            <h2><span class="count-number">{{ $totalPatients }}</span>
                             </h2>
                         </div>
                         <div class="items pull-left">

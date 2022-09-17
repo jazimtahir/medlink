@@ -48,4 +48,6 @@
     <!-- End Theme Layout Style
     =====================================================================-->
     <link href="{{ asset('assets/custom.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- modals css -->
+    <link href="{{ asset('assets/plugins/modals/component.css') }}" rel="stylesheet" type="text/css"/>
 </head>
