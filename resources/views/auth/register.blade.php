@@ -77,6 +77,15 @@
                         @enderror
                     </div>
                     <div class="form-group col-lg-6">
+                        <label>Date of Birth</label>
+                        <input name="dob" class="datepicker form-control hasDatepicker @error('dob') is-invalid @enderror" type="date" placeholder="Date of Birth" required autocomplete="dob">
+                        @error('dob')
+                        <span class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group col-lg-6">
                         <label>{{ __('Password') }}</label>
                         <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                         @error('password')

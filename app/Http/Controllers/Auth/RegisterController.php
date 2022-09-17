@@ -67,7 +67,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:13', 'unique:users'],
             'gender' => ['required', 'in:M,F,T'],
-            'dob' => 'date_format:Y-m-d|before:today',
+            'dob' => 'required|date_format:Y-m-d|before:today',
             'role' => ['required', 'string', 'in:doctor,patient'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -87,6 +87,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
+            'dob' => $data['dob'],
             'gender' => $data['gender'],
             'is_active' => 1,
             'is_verified' => 1,

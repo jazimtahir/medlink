@@ -118,10 +118,12 @@ class DoctorController extends Controller
 
         $doctor = User::find($id);
 
-        $imageName = $doctor->username.''.time().'.'.$request->image->extension();
-        $imagePath = 'profile/'.$imageName;
-        $request->image->storeAs('public/images', $imagePath);
-        $userData['image'] = $imagePath;
+        if($request->image) {
+            $imageName = $doctor->username.''.time().'.'.$request->image->extension();
+            $imagePath = 'profile/'.$imageName;
+            $request->image->storeAs('public/images', $imagePath);
+            $userData['image'] = $imagePath;
+        }
 
         $doctor->update($userData);
         $doctor->doctor->update($docData);

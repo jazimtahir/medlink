@@ -16,6 +16,14 @@
     <section class="content">
         <div class="row">
             <div class="col-sm-12 col-md-4">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            {{$error}}
+                            <button type="button" class="btn-close pull-right" data-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endforeach
+                @endif
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
@@ -273,7 +281,7 @@
                                         <input type="text" class="form-control" placeholder="Enter last Name" required="" name="last_name" value="{{ $user->last_name }}">
                                     </div>
                                     <div class="form-group">
-                                        <label>Password</label>
+                                        <label>Update Password</label>
                                         <input type="password" class="form-control" placeholder="Enter password" name="password">
                                     </div>
                                     {{--                                    <div class="form-group">--}}
@@ -297,7 +305,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Bio</label>
-                                        <textarea id="bio" name="bio" class="form-control" rows="3" placeholder="Enter Bio ...">{{ $user->bio }}</textarea>
+                                        <textarea id="bio" name="bio" class="form-control" rows="3" placeholder="Enter Bio ..." required="">{{ $user->bio }}</textarea>
                                     </div>
                                     @role('doctor')
                                     <div class="form-group">
@@ -307,6 +315,7 @@
                                     <div class="form-group">
                                         <label>Specialization</label>
                                         <select class="form-control" name="specialization_id" size="1">
+                                            <option selected></option>
                                             @foreach($specialization as $s)
                                                 <option @if($user->doctor->specialization && $user->doctor->specialization->name == $s->name) selected @endif class="test" value="{{ $s->id }}">{{ $s->name }}</option>
                                             @endforeach

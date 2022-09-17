@@ -15,6 +15,11 @@
         </div>
     </section>
     <section class="content">
+        @if(!auth()->user()->is_verified)
+            <div class="alert alert-danger" role="alert">
+                Your details are not verified yet
+            </div>
+        @endif
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
                 <div class="panel panel-bd cardbox">
