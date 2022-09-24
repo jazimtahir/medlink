@@ -24,4 +24,6 @@ Route::group(['middleware' => ['web', 'auth']], function() {
 
     Route::get('profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
     Route::put('profile', [App\Http\Controllers\UserController::class, 'updateProfile'])->name('profile.update');
+
+    Route::get('doctor-schedule/{id}', [App\Http\Controllers\DoctorScheduleController::class, 'show'])->name('doctor_schedule.show');
 });
