@@ -71,13 +71,6 @@ class PatientController extends Controller
             ->with('patient', $patient);
     }
 
-    public function edit($id)
-    {
-        $patient = User::find($id);
-        return view('admin.patient.edit')
-            ->with('patient', $patient);
-    }
-
     public function update(Request $request, $id)
     {
         $userData = $request->validate([
@@ -86,6 +79,7 @@ class PatientController extends Controller
             'password' => ['string', 'min:8', 'nullable'],
             'image' => 'mimes:jpeg,jpg,png|max:10000|nullable',
             'dob' => 'date_format:Y-m-d|before:today',
+            'bio' => ['string', 'max:255'],
             'is_active' => ['boolean'],
             'is_verified' => ['boolean'],
         ]);
@@ -98,10 +92,13 @@ class PatientController extends Controller
 
         $patient = User::find($id);
 
-        $imageName = $patient->username.''.time().'.'.$request->image->extension();
-        $imagePath = 'profile/'.$imageName;
-        $request->image->storeAs('public/images', $imagePath);
-        $userData['image'] = $imagePath;
+        //store image
+        if ($request->image) {
+            $imageName = $patient->username.''.time().'.'.$request->image->extension();
+            $imagePath = 'profile/'.$imageName;
+            $request->image->storeAs('public/images', $imagePath);
+            $userData['image'] = $imagePath;
+        }
 
         $patient->update($userData);
 

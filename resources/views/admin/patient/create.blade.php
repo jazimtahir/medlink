@@ -1,176 +1,254 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="header-icon">
-            <i class="pe-7s-note2"></i>
-        </div>
-        <div class="header-title">
-            <h1> Create Doctor</h1>
-            <small> Add a new doctor</small>
-            <ol class="breadcrumb hidden-xs">
-                <li><a href="{{ route('admin.dashboard') }}"><i class="pe-7s-home"></i> Home</a></li>
-                <li class="active">Create Patient</li>
-            </ol>
-        </div>
-    </section>
-    <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <!-- Form controls -->
-            <div class="col-sm-12">
-                <div class="panel panel-bd">
-                    <div class="panel-heading">
-                        <div class="btn-group">
-                            <a class="btn btn-primary" href="{{ route('admin.patient.index') }}"> <i class="fa fa-list"></i>  Patients List </a>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <form class="col-sm-12" action="{{ route('admin.patient.store') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            @method('POST')
-                            <div class="col-sm-6 form-group">
-                                <label>Username</label>
-                                <input class="form-control" value="" name="username">
-                                @error('username')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="col-sm-6 form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" value="" name="email">
-                                @error('email')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="col-sm-6 form-group">
-                                <label>First Name</label>
-                                <input type="text" class="form-control" name="first_name" value="">
-                                @error('first_name')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="col-sm-6 form-group">
-                                <label>Last Name</label>
-                                <input type="text" class="form-control" name="last_name" value="">
-                                @error('last_name')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="col-sm-6 form-group">
-                                <label>Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="Enter password">
-                                @error('password')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="col-sm-6 form-group">
-                                <label>Phone No</label>
-                                <input type="number" class="form-control"value="" name="phone">
-                                @error('phone')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-
-                            <div class="col-sm-6 form-group">
-                                <label >Picture upload</label>
-                                <input type="file" name="image" id="picture">
-                                @error('image')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-{{--                            <div class="col-sm-12 form-group">--}}
-{{--                                <label>Professional Statement</label>--}}
-{{--                                <textarea id="some-textarea" class="form-control" rows="3" name="professional_statement" placeholder="Enter text ..."></textarea>--}}
-{{--                                @error('professional_statement')--}}
-{{--                                <span class="text-danger" role="alert">--}}
-{{--                                    <strong>{{ $message }}</strong>--}}
-{{--                                </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-                            <div class="col-sm-6 form-group">
-                                <label>Date of Birth</label>
-                                <input name="dob" class="datepicker form-control hasDatepicker" type="date" placeholder="Date of Birth" id="date_of_birth" value="">
-                                @error('dob')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="col-sm-6 form-check">
-                                <label>Status</label><br>
-                                <label class="radio-inline"><input type="radio" name="is_active" value="1">Active</label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="is_active" value="0">Inactive</label>
-                            </div>
-                            <label>
-                                @error('is_active')
-                                <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </label>
-                            <div class="col-sm-6 form-check">
-                                <label>Verified</label><br>
-                                <label class="radio-inline">
-                                    <input type="radio" name="is_verified" value="1">Verified</label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="is_verified" value="0">Unverified</label>
-                                <label>
-                                    @error('is_verified')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </label>
-                            </div>
-
-
-                            <div class="form-check col-lg-6">
-                                <label>Gender</label>
-                                <br>
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender" value="M">Male
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender" value="F">Female
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender" value="T">Other
-                                </label>
-                                <label>
-                                    @error('gender')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </label>
-                            </div>
-
-                            <div class="col-sm-12">
-                                <div class="pull-right">
-                                    <button type="submit" class="btn btn-success">Save</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+    <div class="content-header row">
+        <div class="content-header-left col-md-6 col-12 mb-2">
+            <h3 class="content-header-title">Add Patient</h3>
+            <div class="row breadcrumbs-top">
+                <div class="breadcrumb-wrapper col-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.patient.index') }}">Patients</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#">Add Patient</a>
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="content-body">
+        <section>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title" id="horz-layout-colored-controls">Add Patient</h4>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        </div>
+                        <div class="card-content collpase show">
+                            <div class="card-body">
+                                <form class="form form-horizontal" action="{{ route('admin.patient.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-body">
+                                        <h4 class="form-section"><i class="ft-user"></i>Personal Info</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="username">Username</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="text" id="username" class="form-control" placeholder="Username" name="username" value="{{ old('username') }}" required>
+                                                        @error('username')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="email">Email</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="email" id="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required>
+                                                        @error('email')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="first_name">Fist Name</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="text" id="first_name" class="form-control" placeholder="First Name" name="first_name" value="{{ old('first_name') }}" required>
+                                                        @error('first_name')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="last_name">Last Name</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="text" id="last_name" class="form-control" placeholder="Last Name" name="last_name" value="{{ old('last_name') }}" required>
+                                                        @error('last_name')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="phone">Phone No</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="number" id="phone" class="form-control" placeholder="Phone No" name="phone" value="{{ old('phone') }}" required>
+                                                        @error('phone')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="dob">Date of Birth</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="date" id="dob" class="form-control" placeholder="Last Name" name="dob" value="{{ old('dob') }}" required>
+                                                        @error('dob')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="gender">Gender</label>
+                                                    <div class="col-md-9 mx-auto mt-1">
+                                                        <div class="d-inline-block custom-control custom-radio mr-1">
+                                                            <input type="radio" name="gender" value="M" class="custom-control-input" id="g-m">
+                                                            <label class="custom-control-label" for="g-m">Male</label>
+                                                        </div>
+                                                        <div class="d-inline-block custom-control custom-radio mr-1">
+                                                            <input type="radio" name="gender" value="F" class="custom-control-input" id="g-f">
+                                                            <label class="custom-control-label" for="g-f">Female</label>
+                                                        </div>
+                                                        <div class="d-inline-block custom-control custom-radio">
+                                                            <input type="radio" name="gender" value="T" class="custom-control-input" id="g-t">
+                                                            <label class="custom-control-label" for="g-t">Other</label>
+                                                        </div>
+                                                        @error('gender')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="password">Password</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="password" id="password" class="form-control" placeholder="Password" name="password" required>
+                                                        @error('password')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-section"></div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control">Profile Picture</label>
+                                                    <label id="" class="file center-block">
+                                                        <input type="file" name="image">
+                                                        <span class="file-custom"></span>
+                                                    </label>
+                                                    @error('image')
+                                                    <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-section"></div>
 
-    </section> <!-- /.content -->
+                                        <h4 class="form-section"><i class="ft-shopping-bag"></i> Other Info</h4>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="bio">Bio</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <textarea id="bio" rows="5" class="form-control" name="bio" placeholder="Enter Bio...">{{ old('bio') }}</textarea>
+                                                        @error('bio')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-section"></div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="is_active">Activation Status</label>
+                                                    <div class="col-md-9 mx-auto mt-1">
+                                                        <div class="d-inline-block custom-control custom-radio mr-1">
+                                                            <input type="radio" name="is_active" value="1" class="custom-control-input" id="active">
+                                                            <label class="custom-control-label" for="active">Active</label>
+                                                        </div>
+                                                        <div class="d-inline-block custom-control custom-radio">
+                                                            <input type="radio" name="is_active" value="0" class="custom-control-input" id="unactive">
+                                                            <label class="custom-control-label" for="unactive">Unactive</label>
+                                                        </div>
+                                                        @error('is_active')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="is_active">Verification Status</label>
+                                                    <div class="col-md-9 mx-auto mt-1">
+                                                        <div class="d-inline-block custom-control custom-radio mr-1">
+                                                            <input type="radio" name="is_verified" value="1" class="custom-control-input" id="verified">
+                                                            <label class="custom-control-label" for="verified">Verified</label>
+                                                        </div>
+                                                        <div class="d-inline-block custom-control custom-radio">
+                                                            <input type="radio" name="is_verified" value="0" class="custom-control-input" id="unverified">
+                                                            <label class="custom-control-label" for="unverified">Unverified</label>
+                                                        </div>
+                                                        @error('is_verified')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions text-right">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="la la-check-square-o"></i> Save
+                                        </button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 @endsection

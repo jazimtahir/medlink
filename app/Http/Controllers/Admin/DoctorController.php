@@ -19,9 +19,11 @@ class DoctorController extends Controller
 
     public function index()
     {
-        $doctors = User::role('doctor')->with('doctor')->paginate(10);
+        $doctors = User::role('doctor')->with('doctor')->get();
+        $specialization = Specialization::all();
         return view('admin.doctor.index')
-            ->with('doctors', $doctors);
+            ->with('doctors', $doctors)
+            ->with('specialization', $specialization);
     }
 
     public function create()
@@ -45,6 +47,7 @@ class DoctorController extends Controller
             'specialization_id' => ['required', 'integer'],
             'image' => 'mimes:jpeg,jpg,png|max:10000|nullable',
             'professional_statement' => ['string', 'max:255'],
+            'bio' => ['string', 'max:255'],
             'is_active' => ['required', 'boolean'],
             'is_verified' => ['required', 'boolean'],
         ]);
@@ -81,15 +84,6 @@ class DoctorController extends Controller
             ->with('doctor', $doctor);
     }
 
-    public function edit($id)
-    {
-        $doctor = User::find($id);
-        $specialization = Specialization::all();
-        return view('admin.doctor.edit')
-            ->with('doctor', $doctor)
-            ->with('specialization', $specialization);
-    }
-
     public function update(Request $request, $id)
     {
         $userData = $request->validate([
@@ -100,6 +94,7 @@ class DoctorController extends Controller
             'image' => 'mimes:jpeg,jpg,png|max:10000|nullable',
             'dob' => 'date_format:Y-m-d|before:today',
             'professional_statement' => ['string', 'max:255'],
+            'bio' => ['string', 'max:255'],
             'is_active' => ['boolean'],
             'is_verified' => ['boolean'],
         ]);

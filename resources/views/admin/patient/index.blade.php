@@ -1,233 +1,204 @@
-@extends('layouts.app',  ['subheader' => 'patients', 'icon' => 'pe-7s-note2'])
+@extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="header-icon">
-            <i class="pe-7s-note2"></i>
+    <div class="content-header row">
+        <div class="content-header-left col-md-6 col-12 mb-2">
+            <h3 class="content-header-title">Patients</h3>
+            <div class="row breadcrumbs-top">
+                <div class="breadcrumb-wrapper col-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#">Patients</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
         </div>
-        <div class="header-title">
-            <h1> Patients List</h1>
-            <small> Lists all registered patients</small>
-            <ol class="breadcrumb hidden-xs">
-                <li><a href="{{ route('patient.dashboard') }}"><i class="pe-7s-home"></i> Home</a></li>
-                <li class="active">Patients List</li>
-            </ol>
-        </div>
-    </section>
-    <section class="content">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="panel panel-bd">
-                    <div class="panel-heading">
-                        <div class="btn-group">
-                            <a class="btn btn-success" href="{{ route('admin.patient.create') }}"> <i class="fa fa-plus"></i> Add Patient
-                            </a>
+    </div>
+    <div class="content-body">
+        <section id="patient-index">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">All Patients</h4>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                         </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="panel-header">
-                                <div class="col-sm-4 col-xs-12">
-                                    <div class="dataTables_length">
-                                        <label>Display
-                                            <select name="example_length">
-                                                <option value="10">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select> records per page</label>
-                                    </div>
+                        @if($errors->any())
+                            {!! implode('', $errors->all('
+                                <div class=" col-6 offset-3 alert alert-danger alert-dismissible mb-2" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <strong>Error!</strong> :message
                                 </div>
-                                <div class="col-sm-4 offset-sm-4 col-xs-12">
-                                    <div class="dataTables_length">
-                                        <div class="input-group custom-search-form">
-                                            <input type="search" class="form-control" placeholder="search..">
-                                            <span class="input-group-btn">
-                                                                  <button class="btn btn-primary" type="button">
-                                                                      <span class="glyphicon glyphicon-search"></span>
-                                                                  </button>
-                                                              </span>
-                                        </div><!-- /input-group -->
-                                    </div>
+                            ')) !!}
+                        @endif
+                        <div class="card-content collapse show">
+                            <div class="card-body card-dashboard dataTables_wrapper dt-bootstrap">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered dom-jQuery-events">
+                                        <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Username</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th style="width: 10%">Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($patients as $patient)
+                                            <tr>
+                                                <td><img src="{{ $patient->getImg() }}" class="img-sm"></td>
+                                                <td>{{ $patient->username }}</td>
+                                                <td>{{ $patient->first_name }}</td>
+                                                <td>{{ $patient->last_name }}</td>
+                                                <td>{{ $patient->email }}</td>
+                                                <td>{{ $patient->phone }}</td>
+                                                <td class="btn-toolbar">
+                                                    <div class="btn-group p-0">
+                                                        <a class="btn btn-sm btn-outline-primary mr-1" href="{{ route('admin.patient.show', [$patient->id]) }}">
+                                                            <i class="la la-eye"></i>
+                                                        </a>
+                                                        <a class="btn btn-sm btn-outline-warning mr-1" href=""
+                                                           data-toggle="modal"
+                                                           data-target='#patientEdit{{ $patient->id }}'
+                                                        >
+                                                            <i class="la la-edit"></i>
+                                                        </a>
+                                                        <a class="btn btn-sm btn-outline-danger" href="{{ route('admin.patient.destroy', [$patient->id]) }}" onclick="return confirm('Are you sure?')">
+                                                            <i class="la la-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                    {{--                                                edit modal--}}
+                                                    <div class="modal fade text-left" id="patientEdit{{ $patient->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="modal-title">Edit Patient</h3>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <form method="POST" action="{{ route('admin.patient.update', $patient->id) }}" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <div class="modal-body">
+                                                                        <label>Username: </label>
+                                                                        <div class="form-group position-relative has-icon-left">
+                                                                            <input type="text" name="username" value="{{ $patient->username }}" class="form-control" disabled>
+                                                                            <div class="form-control-position">
+                                                                                <i class="ft ft-user-check"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label>Email: </label>
+                                                                        <div class="form-group position-relative has-icon-left">
+                                                                            <input type="email" name="email" value="{{ $patient->email }}" class="form-control" disabled>
+                                                                            <div class="form-control-position">
+                                                                                <i class="la la-envelope"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label>Phone: </label>
+                                                                        <div class="form-group position-relative has-icon-left">
+                                                                            <input type="text" name="phone" value="{{ $patient->phone }}" class="form-control" disabled>
+                                                                            <div class="form-control-position">
+                                                                                <i class="la la-phone"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label>First Name: </label>
+                                                                        <div class="form-group position-relative has-icon-left">
+                                                                            <input type="text" name="first_name" value="{{ $patient->first_name }}" class="form-control">
+                                                                            <div class="form-control-position">
+                                                                                <i class="la la-user"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label>Last Name: </label>
+                                                                        <div class="form-group position-relative has-icon-left">
+                                                                            <input type="text" name="last_name" value="{{ $patient->last_name }}" class="form-control">
+                                                                            <div class="form-control-position">
+                                                                                <i class="la la-user-plus"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label>Password: </label>
+                                                                        <div class="form-group position-relative has-icon-left">
+                                                                            <input type="password" name="password" placeholder="Password" class="form-control">
+                                                                            <div class="form-control-position">
+                                                                                <i class="la la-lock"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label>Bio: </label>
+                                                                        <div class="form-group position-relative">
+                                                                            <textarea class="form-control" rows="5" name="bio" placeholder="Enter text ...">{{ $patient->bio }}</textarea>
+                                                                        </div>
+
+                                                                        <label>Date of Birth: </label>
+                                                                        <div class="form-group position-relative">
+                                                                            <input type="date" class="form-control" id="dob" name="dob" value="{{ $patient->dob }}">
+                                                                        </div>
+
+                                                                        <label>Profile Picture: </label>
+                                                                        <div class="form-group position-relative">
+                                                                            <input type="file" class="form-control" id="image" name="image">
+                                                                        </div>
+
+                                                                        <label>Activation Status: </label>
+                                                                        <div class="form-group position-relative">
+                                                                            <div class="input-group">
+                                                                                <div class="d-inline-block custom-control custom-radio mr-1">
+                                                                                    <input type="radio" name="is_active" value="1" {{ ($patient->is_active=="1")? "checked" : "" }} class="custom-control-input" id="active1{{ $patient->id }}">
+                                                                                    <label class="custom-control-label" for="active1{{ $patient->id }}">Active</label>
+                                                                                </div>
+                                                                                <div class="d-inline-block custom-control custom-radio mr-1">
+                                                                                    <input type="radio" name="is_active" value="0" {{ ($patient->is_active=="0")? "checked" : "" }} class="custom-control-input" id="active0{{ $patient->id }}">
+                                                                                    <label class="custom-control-label" for="active0{{ $patient->id }}">InActive</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label>Verification Status: </label>
+                                                                        <div class="form-group position-relative">
+                                                                            <div class="input-group">
+                                                                                <div class="d-inline-block custom-control custom-radio mr-1">
+                                                                                    <input type="radio" name="is_verified" value="1" {{ ($patient->is_verified=="1")? "checked" : "" }} class="custom-control-input" id="verify1{{ $patient->id }}">
+                                                                                    <label class="custom-control-label" for="verify1{{ $patient->id }}">Verified</label>
+                                                                                </div>
+                                                                                <div class="d-inline-block custom-control custom-radio mr-1">
+                                                                                    <input type="radio" name="is_verified" value="0" {{ ($patient->is_verified=="0")? "checked" : "" }} class="custom-control-input" id="verify0{{ $patient->id }}">
+                                                                                    <label class="custom-control-label" for="verify0{{ $patient->id }}">Unverified</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <input type="reset" class="btn btn-outline-secondary" data-dismiss="modal" value="Close">
+                                                                        <input type="submit" class="btn btn-outline-primary" value="Save">
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                <tr>
-                                    <th>S No.</th>
-                                    <th>Image</th>
-                                    <th>Username</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Update</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php $count = 0 ?>
-                                    @foreach($patients as $patient)
-                                        <?php $count++ ?>
-                                        <tr>
-                                            <td>
-                                                <input type="radio" name="radioGroup">
-                                                <label>{{ $count }}</label>
-                                            </td>
-                                            <td><img src="{{ $patient->getImg() }}" class="img-circle" alt="User Image" height="35" width="35"></td>
-                                            <td>{{ $patient->username }}</td>
-                                            <td>{{ $patient->first_name }}</td>
-                                            <td>{{ $patient->last_name }}</td>
-                                            <td>{{ $patient->email }}</td>
-                                            <td>{{ $patient->phone }}</td>
-                                            <td>
-                                                <a class="btn btn-info btn-xs bg-yellow" href="{{ route('admin.patient.show', [$patient->id]) }}"><i class="fa fa-eye"></i>
-                                                </a>
-                                                <a class="btn btn-info btn-xs" href="{{ route('admin.patient.edit', [$patient->id]) }}"><i class="fa fa-pencil"></i>
-                                                </a>
-                                                <a href="{{ route('admin.patient.destroy', [$patient->id]) }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure?')"><i class="fa fa-trash-o"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="page-nation text-right">
-                            <ul class="pagination pagination-large">
-                                {{ $patients->links() }}
-                            </ul>
-                        </div>
-
                     </div>
                 </div>
-
             </div>
-
-        </div>
-    </section> <!-- /.content -->
-{{--    <div id="ordine" class="modal fade" role="dialog">--}}
-{{--        <div class="modal-dialog">--}}
-
-{{--            <!-- Modal content-->--}}
-{{--            <div class="modal-content ">--}}
-{{--                <div class="modal-header">--}}
-{{--                    <button type="button" class="close" data-dismiss="modal">×</button>--}}
-{{--                    <h4 class="modal-title">Update Patient</h4>--}}
-{{--                </div>--}}
-{{--                <div class="modal-body">--}}
-{{--                    <div class="panel panel-bd">--}}
-{{--                        <div class="panel-body">--}}
-{{--                            <form class="col-sm-12">--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>First Name</label>--}}
-{{--                                    <input type="text" class="form-control" placeholder="Enter First Name" required>--}}
-{{--                                </div>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Last Name</label>--}}
-{{--                                    <input type="text" class="form-control" placeholder="Enter last Name" required>--}}
-{{--                                </div>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Email</label>--}}
-{{--                                    <input type="email" class="form-control" placeholder="Enter Email" required>--}}
-{{--                                </div>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Password</label>--}}
-{{--                                    <input type="password" class="form-control" placeholder="Enter password" required>--}}
-{{--                                </div>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Designation</label>--}}
-{{--                                    <input type="text" class="form-control" placeholder="Enter Designation" required>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Department</label>--}}
-{{--                                    <select class="form-control" name="select" size="1">--}}
-{{--                                        <option selected class="test">Neurology</option>--}}
-{{--                                        <option>Gynaecology</option>--}}
-{{--                                        <option>Microbiology</option>--}}
-{{--                                        <option>Pharmacy</option>--}}
-{{--                                        <option>Neonatal</option>--}}
-{{--                                    </select>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Address</label>--}}
-{{--                                    <textarea class="form-control" id="exampleTextarea" rows="3" required></textarea>--}}
-{{--                                </div>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Phone</label>--}}
-{{--                                    <input type="number" class="form-control" placeholder="Enter Phone number" required>--}}
-{{--                                </div>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Mobile</label>--}}
-{{--                                    <input type="number" class="form-control" placeholder="Enter Mobile" required>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Picture upload</label>--}}
-{{--                                    <input type="file" name="picture" id="picture">--}}
-{{--                                    <input type="hidden" name="old_picture">--}}
-{{--                                </div>--}}
-
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Short Biography</label>--}}
-{{--                                    <textarea id="some-textarea" class="form-control" rows="6" placeholder="Enter text ..."></textarea>--}}
-{{--                                </div>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Specialist</label>--}}
-{{--                                    <input type="text" class="form-control" placeholder="Specialist" required>--}}
-{{--                                </div>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Date of Birth</label>--}}
-{{--                                    <input name="date_of_birth" class="datepicker form-control hasDatepicker" type="text" placeholder="Date of Birth">--}}
-{{--                                </div>--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Blood group</label>--}}
-{{--                                    <select class="form-control">--}}
-{{--                                        <option>A+</option>--}}
-{{--                                        <option>AB+</option>--}}
-{{--                                        <option>O+</option>--}}
-{{--                                        <option>AB-</option>--}}
-{{--                                        <option>B+</option>--}}
-{{--                                        <option>A-</option>--}}
-{{--                                        <option>B-</option>--}}
-{{--                                        <option>O-</option>--}}
-{{--                                    </select>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="form-group">--}}
-{{--                                    <label>Sex</label><br>--}}
-{{--                                    <label class="radio-inline">--}}
-{{--                                        <input type="radio" name="sex" value="1" checked="checked">Male</label>--}}
-{{--                                    <label class="radio-inline"><input type="radio" name="sex" value="0" >Female</label>--}}
-
-{{--                                </div>--}}
-{{--                                <div class="form-check">--}}
-{{--                                    <label>Status</label><br>--}}
-{{--                                    <label class="radio-inline">--}}
-{{--                                        <input type="radio" name="status" value="1" checked="checked">Active</label>--}}
-{{--                                    <label class="radio-inline">--}}
-{{--                                        <input type="radio" name="status" value="0" >Inctive--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="reset button">--}}
-{{--                                    <a href="#" class="btn btn-primary">Reset</a>--}}
-{{--                                    <a href="#" class="btn btn-success">Save</a>--}}
-{{--                                </div>--}}
-{{--                            </form>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                </div>--}}
-{{--                <div class="modal-footer">--}}
-{{--                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--        </div>--}}
-{{--    </div>--}}
+        </section>
+    </div>
 @endsection

@@ -1,223 +1,138 @@
-<header class="main-header">
-    <a href="" class="logo"> <!-- Logo -->
-        <span class="logo-mini">
-                        <!--<b>A</b>H-admin-->
-                        <h1>HealthCare</h1>
-                    </span>
-        <span class="logo-lg">
-                        <!--<b>Admin</b>H-admin-->
-                        <h1>HealthCare</h1>
-                    </span>
-    </a>
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top ">
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <!-- Sidebar toggle button-->
-            <span class="sr-only">Toggle navigation</span>
-            <span class="fa fa-tasks"></span>
-        </a>
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-                <!-- Messages -->
-{{--                <li class="dropdown messages-menu">--}}
-{{--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-{{--                        <i class="pe-7s-mail"></i>--}}
-{{--                        <span class="label label-success">4</span>--}}
-{{--                    </a>--}}
-
-{{--                    <ul class="dropdown-menu">--}}
-{{--                        <li class="header"><i class="fa fa-envelope-o"></i>--}}
-{{--                            4 Messages</li>--}}
-{{--                        <li>--}}
-{{--                            <ul class="menu">--}}
-{{--                                <li><!-- start message -->--}}
-{{--                                    <a href="#" class="border-gray">--}}
-{{--                                        <div class="pull-left">--}}
-{{--                                            <img src="{{ asset('assets/dist/img/avatar2.png') }}" class="img-thumbnail" alt="User Image"></div>--}}
-{{--                                        <h4>Alrazy</h4>--}}
-{{--                                        <p>Lorem Ipsum is simply dummy text of...--}}
-{{--                                        </p>--}}
-{{--                                        <span class="label label-success pull-right">11.00am</span>--}}
-{{--                                    </a>--}}
-
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray">--}}
-{{--                                        <div class="pull-left">--}}
-{{--                                            <img src="{{ asset('assets/dist/img/avatar4.png') }}" class="img-thumbnail" alt="User Image"></div>--}}
-{{--                                        <h4>Tanjil</h4>--}}
-{{--                                        <p>Lorem Ipsum is simply dummy text of...--}}
-{{--                                        </p>--}}
-{{--                                        <span class="label label-success pull-right"> 12.00am</span>--}}
-{{--                                    </a>--}}
-
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray">--}}
-{{--                                        <div class="pull-left">--}}
-{{--                                            <img src="{{ asset('assets/dist/img/avatar3.png') }}" class="img-thumbnail" alt="User Image"></div>--}}
-{{--                                        <h4>Jahir</h4>--}}
-{{--                                        <p>Lorem Ipsum is simply dummy text of...--}}
-{{--                                        </p>--}}
-{{--                                        <span class="label label-success pull-right"> 10.00am</span>--}}
-{{--                                    </a>--}}
-
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray">--}}
-{{--                                        <div class="pull-left">--}}
-{{--                                            <img src="{{ asset('assets/dist/img/avatar4.png') }}" class="img-thumbnail" alt="User Image"></div>--}}
-{{--                                        <h4>Shawon</h4>--}}
-{{--                                        <p>Lorem Ipsum is simply dummy text of...--}}
-{{--                                        </p>--}}
-{{--                                        <span class="label label-success pull-right"> 09.00am</span>--}}
-{{--                                    </a>--}}
-
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray">--}}
-{{--                                        <div class="pull-left">--}}
-{{--                                            <img src="{{ asset('assets/dist/img/avatar3.png') }}" class="img-thumbnail" alt="User Image"></div>--}}
-{{--                                        <h4>Shipon</h4>--}}
-{{--                                        <p>Lorem Ipsum is simply dummy text of...--}}
-{{--                                        </p>--}}
-{{--                                        <span class="label label-success pull-right"> 03.00pm</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
-{{--                        <li class="footer"><a href="#">See all messages <i class=" fa fa-arrow-right"></i></a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-                <!-- Notifications -->
-{{--                <li class="dropdown notifications-menu">--}}
-{{--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-{{--                        <i class="pe-7s-bell"></i>--}}
-{{--                        <span class="label label-warning">8</span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="dropdown-menu">--}}
-{{--                        <li class="header"><i class="fa fa-bell"></i> 8 Notifications</li>--}}
-{{--                        <li>--}}
-{{--                            <ul class="menu">--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray"><i class="fa fa-inbox"></i> Inbox  <span class=" label-success label label-default pull-right">9</span></a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray"><i class="fa fa-cart-plus"></i> New Order <span class=" label-success label label-default pull-right">3</span> </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray"><i class="fa fa-money"></i> Payment Failed  <span class="label-success label label-default pull-right">6</span> </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray"><i class="fa fa-cart-plus"></i> Order Confirmation <span class="label-success label label-default pull-right">7</span> </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray"><i class="fa fa-cart-plus"></i> Update system status <span class=" label-success label label-default pull-right">11</span> </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray"><i class="fa fa-cart-plus"></i> client update <span class="label-success label label-default pull-right">12</span> </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#" class="border-gray"><i class="fa fa-cart-plus"></i> shipment cancel--}}
-{{--                                        <span class="label-success label label-default pull-right">2</span> </a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
-{{--                        <li class="footer">--}}
-{{--                            <a href="#"> See all Notifications <i class=" fa fa-arrow-right"></i></a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-                <!-- Tasks -->
-{{--                <li class="dropdown tasks-menu">--}}
-{{--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-{{--                        <i class="pe-7s-file"></i>--}}
-{{--                        <span class="label label-danger">9</span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="dropdown-menu">--}}
-{{--                        <li class="header"><i class="fa fa-file"></i> 9 tasks</li>--}}
-{{--                        <li>--}}
-{{--                            <ul class="menu">--}}
-{{--                                <li> <!-- Task item -->--}}
-{{--                                    <a href="#">--}}
-{{--                                        <h3>--}}
-{{--                                            <i class="fa fa-check-circle"></i> Data table error--}}
-{{--                                            <span class="label-primary label label-default pull-right">35%</span>--}}
-{{--                                        </h3>--}}
-{{--                                        <div class="progress">--}}
-{{--                                            <div class="progress-bar progress-bar-primary progress-bar-striped active" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" data-original-title="35%" style="width: 35%">--}}
-{{--                                                <span class="sr-only">35% Complete (primary)</span>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </a>--}}
-{{--                                </li> <!-- end task item -->--}}
-{{--                                <li> <!-- Task item -->--}}
-{{--                                    <a href="#">--}}
-{{--                                        <h3>--}}
-{{--                                            <i class="fa fa-check-circle"></i>  Change theme color--}}
-{{--                                            <span class="label-success label label-default pull-right">55%</span>--}}
-{{--                                        </h3>--}}
-{{--                                        <div class="progress">--}}
-{{--                                            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" data-original-title="55%" style="width: 55%">--}}
-{{--                                                <span class="sr-only">55% Complete (primary)</span>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </a>--}}
-{{--                                </li> <!-- end task item -->--}}
-{{--                                <li> <!-- Task item -->--}}
-{{--                                    <a href="#">--}}
-{{--                                        <h3>--}}
-{{--                                            <i class="fa  fa-check-circle"></i> Change the font-family--}}
-{{--                                            <span class="label-info label label-default pull-right">60%</span>--}}
-{{--                                        </h3>--}}
-{{--                                        <div class="progress">--}}
-{{--                                            <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" data-original-title="60%" style="width: 60%">--}}
-{{--                                                <span class="sr-only">60% Complete (info)</span>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </a>--}}
-{{--                                </li> <!-- end task item -->--}}
-{{--                                <li> <!-- Task item -->--}}
-{{--                                    <a href="#">--}}
-{{--                                        <h3>--}}
-{{--                                            <i class="fa  fa-check-circle"></i> Animation should be skip--}}
-{{--                                            <span class="label-warning label label-default pull-right">80%</span>--}}
-{{--                                        </h3>--}}
-{{--                                        <div class="progress">--}}
-{{--                                            <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" data-original-title="80%"  style="width: 80%">--}}
-{{--                                                <span class="sr-only">80% Complete (warning)</span>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <!-- end task item -->--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
-{{--                        <li class="footer"><a href="#">See all tasks <i class=" fa fa-arrow-right"></i></a></li>--}}
-{{--                    </ul>--}}
-
-{{--                </li>--}}
-                <!-- user -->
-                <li class="dropdown dropdown-user admin-user">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <div class="user-image">
-                            <img src="{{ auth()->user()->getImg() }}" class="img-circle" height="40" width="40" alt="User Image">
-                        </div>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('profile') }}"><i class="fa fa-users"></i> Profile</a></li>
-{{--                        <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>--}}
-                        <li>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                    document.getElementById('logout-form').submit();">
-                                <i class="fa fa-sign-out"></i> {{ __('Logout') }}</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                        </li>
-                    </ul>
-                </li>
+<!-- BEGIN: Header-->
+<nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow navbar-static-top navbar-light navbar-brand-center">
+    <div class="navbar-wrapper">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="{{ route('dashboard') }}">
+                        <img class="brand-logo" alt="modern admin logo" src="{{ asset('assets/images/logo/logo.png') }}">
+                        <h3 class="brand-text">HealthCare</h3></a></li>
+                <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="la la-ellipsis-v"></i></a></li>
             </ul>
         </div>
-    </nav>
-</header>
+        <div class="navbar-container content">
+            <div class="collapse navbar-collapse" id="navbar-mobile">
+                <ul class="nav navbar-nav mr-auto float-left">
+                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a></li>
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon ft-maximize"></i></a></li>
+                    <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>
+                        <div class="search-input">
+                            <input class="input" type="text" placeholder="Explore Modern..." tabindex="0" data-search="template-list">
+                            <div class="search-input-close"><i class="ft-x"></i></div>
+                            <ul class="search-list"></ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav float-right">
+                    <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up badge-glow">5</span></a>
+                        <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                            <li class="dropdown-menu-header">
+                                <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6><span class="notification-tag badge badge-danger float-right m-0">5 New</span>
+                            </li>
+                            <li class="scrollable-container media-list w-100"><a href="javascript:void(0)">
+                                    <div class="media">
+                                        <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan mr-0"></i></div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">You have new order!</h6>
+                                            <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p><small>
+                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">30 minutes ago</time></small>
+                                        </div>
+                                    </div></a><a href="javascript:void(0)">
+                                    <div class="media">
+                                        <div class="media-left align-self-center"><i class="ft-download-cloud icon-bg-circle bg-red bg-darken-1 mr-0"></i></div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading red darken-1">99% Server load</h6>
+                                            <p class="notification-text font-small-3 text-muted">Aliquam tincidunt mauris eu risus.</p><small>
+                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Five hour ago</time></small>
+                                        </div>
+                                    </div></a><a href="javascript:void(0)">
+                                    <div class="media">
+                                        <div class="media-left align-self-center"><i class="ft-alert-triangle icon-bg-circle bg-yellow bg-darken-3 mr-0"></i></div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading yellow darken-3">Warning notifixation</h6>
+                                            <p class="notification-text font-small-3 text-muted">Vestibulum auctor dapibus neque.</p><small>
+                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Today</time></small>
+                                        </div>
+                                    </div></a><a href="javascript:void(0)">
+                                    <div class="media">
+                                        <div class="media-left align-self-center"><i class="ft-check-circle icon-bg-circle bg-cyan mr-0"></i></div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">Complete the task</h6><small>
+                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last week</time></small>
+                                        </div>
+                                    </div></a><a href="javascript:void(0)">
+                                    <div class="media">
+                                        <div class="media-left align-self-center"><i class="ft-file icon-bg-circle bg-teal mr-0"></i></div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">Generate monthly report</h6><small>
+                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last month</time></small>
+                                        </div>
+                                    </div></a></li>
+                            <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-mail"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                            <li class="dropdown-menu-header">
+                                <h6 class="dropdown-header m-0"><span class="grey darken-2">Messages</span></h6><span class="notification-tag badge badge-warning float-right m-0">4 New</span>
+                            </li>
+                            <li class="scrollable-container media-list w-100"><a href="javascript:void(0)">
+                                    <div class="media">
+                                        <div class="media-left"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span></div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">Margaret Govan</h6>
+                                            <p class="notification-text font-small-3 text-muted">I like your portfolio, let's start.</p><small>
+                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Today</time></small>
+                                        </div>
+                                    </div></a><a href="javascript:void(0)">
+                                    <div class="media">
+                                        <div class="media-left"><span class="avatar avatar-sm avatar-busy rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span></div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">Bret Lezama</h6>
+                                            <p class="notification-text font-small-3 text-muted">I have seen your work, there is</p><small>
+                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Tuesday</time></small>
+                                        </div>
+                                    </div></a><a href="javascript:void(0)">
+                                    <div class="media">
+                                        <div class="media-left"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span></div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">Carie Berra</h6>
+                                            <p class="notification-text font-small-3 text-muted">Can we have call in this week ?</p><small>
+                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Friday</time></small>
+                                        </div>
+                                    </div></a><a href="javascript:void(0)">
+                                    <div class="media">
+                                        <div class="media-left"><span class="avatar avatar-sm avatar-away rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span></div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading">Eric Alsobrook</h6>
+                                            <p class="notification-text font-small-3 text-muted">We have project party this saturday.</p><small>
+                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">last month</time></small>
+                                        </div>
+                                    </div></a></li>
+                            <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all messages</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-user nav-item">
+                        <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                            <span class="mr-1 user-name text-bold-700">{{ auth()->user()->username }}</span>
+                            <span class="avatar avatar-online"><img src="{{ auth()->user()->getImg() }}" alt="avatar"><i></i></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="{{ route('profile') }}"><i class="ft-user"></i> Edit Profile</a>
+{{--                            <a class="dropdown-item" href="app-kanban.html"><i class="ft-clipboard"></i> Todo</a>--}}
+{{--                            <a class="dropdown-item" href="user-cards.html"><i class="ft-check-square"></i> Task</a>--}}
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();"><i class="ft-power"></i> Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- END: Header-->

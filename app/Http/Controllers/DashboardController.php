@@ -33,38 +33,16 @@ class DashboardController extends Controller
                 $activeDoctors = User::role('doctor')->where('is_active', 1)->count();
                 $totalPatients = User::role('patient')->count();
                 $activePatients = User::role('patient')->where('is_active', 1)->count();
-                return view('admin/dashboard')
+                return view('dashboard')
                     ->with('totalDoctors', $totalDoctors)
                     ->with('activeDoctors', $activeDoctors)
                     ->with('totalPatients', $totalPatients)
                     ->with('activePatients', $activePatients);
                 break;
-            case 'doctor':
-                return view('doctor/dashboard');
-                break;
             case 'patient':
-                return view('patient/dashboard');
+            case 'doctor':
+                return view('dashboard');
                 break;
         }
-    }
-    public function admin()
-    {
-        $totalDoctors = User::role('doctor')->count();
-        $activeDoctors = User::role('doctor')->where('is_active', 1)->count();
-        $totalPatients = User::role('patient')->count();
-        $activePatients = User::role('patient')->where('is_active', 1)->count();
-        return view('admin/dashboard')
-            ->with('totalDoctors', $totalDoctors)
-            ->with('activeDoctors', $activeDoctors)
-            ->with('totalPatients', $totalPatients)
-            ->with('activePatients', $activePatients);
-    }
-    public function doctor()
-    {
-        return view('doctor/dashboard');
-    }
-    public function patient()
-    {
-        return view('patient/dashboard');
     }
 }
