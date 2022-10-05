@@ -42,6 +42,7 @@
                                     <thead>
                                     <tr>
                                         <th>Image</th>
+                                        <th>Salutation</th>
                                         <th>Username</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
@@ -54,7 +55,10 @@
                                     <tbody>
                                     @foreach($doctors as $doctor)
                                         <tr>
-                                            <td><img src="{{ $doctor->getImg() }}" class="img-sm"></td>
+                                            <td>
+                                                <img class="avatar avatar-lg" src="{{ $doctor->getImg() }}">
+                                            </td>
+                                            <td>{{ $doctor->doctor->salutation }}</td>
                                             <td>{{ $doctor->username }}</td>
                                             <td>{{ $doctor->first_name }}</td>
                                             <td>{{ $doctor->last_name }}</td>
@@ -114,6 +118,14 @@
                                                                         </div>
                                                                     </div>
 
+                                                                    <label>Salutation: </label>
+                                                                    <div class="form-group position-relative has-icon-left">
+                                                                        <input type="text" name="salutation" value="{{ $doctor->doctor->salutation }}" class="form-control">
+                                                                        <div class="form-control-position">
+                                                                            <i class="ft ft-info"></i>
+                                                                        </div>
+                                                                    </div>
+
                                                                     <label>First Name: </label>
                                                                     <div class="form-group position-relative has-icon-left">
                                                                         <input type="text" name="first_name" value="{{ $doctor->first_name }}" class="form-control">
@@ -132,7 +144,7 @@
 
                                                                     <label>Specialization: </label>
                                                                     <div class="form-group position-relative">
-                                                                        <select class="form-control" name="specialization_id">
+                                                                        <select class=" custom-select form-control" name="specialization_id">
                                                                             <option></option>
                                                                             @foreach($specialization as $s)
                                                                                 <option @if($doctor->doctor->specialization && $doctor->doctor->specialization->name == $s->name) selected @endif class="" value="{{ $s->id }}">{{ $s->name }}</option>
@@ -153,19 +165,40 @@
                                                                         <textarea class="form-control" rows="5" name="bio" placeholder="Enter text ...">{{ $doctor->bio }}</textarea>
                                                                     </div>
 
+                                                                    <label>Fee: </label>
+                                                                    <div class="form-group position-relative has-icon-left">
+                                                                        <input type="number" name="fee" placeholder="Fee" class="form-control" value="{{ $doctor->doctor->fee }}">
+                                                                        <div class="form-control-position">
+                                                                            <i class="la la-money"></i>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <label>Practicing From: </label>
+                                                                    <div class="form-group position-relative has-icon-left">
+                                                                        <input type="text" name="practicing_from" class="date-picker form-control" value="{{ $doctor->doctor->practicing_from }}">
+                                                                        <div class="form-control-position">
+                                                                            <i class="ft ft-activity"></i>
+                                                                        </div>
+                                                                    </div>
+
                                                                     <label>Professional Statement: </label>
                                                                     <div class="form-group position-relative">
                                                                         <textarea class="form-control" rows="5" name="professional_statement" placeholder="Enter text ...">{{ $doctor->doctor->professional_statement }}</textarea>
                                                                     </div>
 
+                                                                    <label>Address: </label>
+                                                                    <div class="form-group position-relative">
+                                                                        <textarea class="form-control" rows="3" name="address" placeholder="Enter address ...">{{ $doctor->address }}</textarea>
+                                                                    </div>
+
                                                                     <label>Date of Birth: </label>
                                                                     <div class="form-group position-relative">
-                                                                        <input type="date" class="form-control" id="dob" name="dob" value="{{ $doctor->dob }}">
+                                                                        <input type="text" class="date-picker form-control" name="dob" value="{{ $doctor->dob }}">
                                                                     </div>
 
                                                                     <label>Profile Picture: </label>
                                                                     <div class="form-group position-relative">
-                                                                        <input type="file" class="form-control" id="image" name="image">
+                                                                        <input type="file" class="form-control" name="image">
                                                                     </div>
 
                                                                     <label>Activation Status: </label>

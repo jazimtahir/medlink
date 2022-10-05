@@ -7,7 +7,10 @@
             <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
                 <div class="card-header border-0">
                     <div class="card-title text-center">
-                        <img src="{{ asset('assets/images/logo/logo-dark.png') }}" alt="branding logo">
+                        <div class="d-flex justify-content-center align-items-end">
+                            <img class="img-sm" src="{{ asset('assets/images/logo/logo-new.png') }}" alt="branding logo">
+                            <h4 class="brand-text">HealthCare</h4>
+                        </div>
                     </div>
                     <h6 class="line-on-side text-center pt-2"><span>Login</span></h6>
                 </div>

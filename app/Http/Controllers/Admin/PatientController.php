@@ -38,6 +38,7 @@ class PatientController extends Controller
             'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:13', 'unique:users'],
             'gender' => ['required', 'in:M,F,T'],
             'password' => ['required', 'string'],
+            'address' => ['required', 'string'],
             'dob' => 'date_format:Y-m-d|before:today',
             'image' => 'mimes:jpeg,jpg,png|max:10000|nullable',
             'is_active' => ['required', 'boolean'],
@@ -48,7 +49,8 @@ class PatientController extends Controller
         if ($request->image) {
             $imageName = $userData['username'].''.time().'.'.$request->image->extension();
             $imagePath = 'profile/'.$imageName;
-            $request->image->storeAs('public/images', $imagePath);
+            $imageFullPath = 'app/public/images/'.$imagePath;
+            uploadImage($request->image, $imageFullPath);
             $userData['image'] = $imagePath;
         }
 
@@ -80,6 +82,7 @@ class PatientController extends Controller
             'image' => 'mimes:jpeg,jpg,png|max:10000|nullable',
             'dob' => 'date_format:Y-m-d|before:today',
             'bio' => ['string', 'max:255'],
+            'address' => ['string'],
             'is_active' => ['boolean'],
             'is_verified' => ['boolean'],
         ]);
@@ -96,7 +99,8 @@ class PatientController extends Controller
         if ($request->image) {
             $imageName = $patient->username.''.time().'.'.$request->image->extension();
             $imagePath = 'profile/'.$imageName;
-            $request->image->storeAs('public/images', $imagePath);
+            $imageFullPath = 'app/public/images/'.$imagePath;
+            uploadImage($request->image, $imageFullPath);
             $userData['image'] = $imagePath;
         }
 

@@ -6,7 +6,7 @@
                 <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
                 <li class="nav-item">
                     <a class="navbar-brand" href="{{ route('dashboard') }}">
-                        <img class="brand-logo" alt="modern admin logo" src="{{ asset('assets/images/logo/logo.png') }}">
+                        <img class="brand-logo" alt="" src="{{ asset('assets/images/logo/logo-new.png') }}">
                         <h3 class="brand-text">HealthCare</h3></a></li>
                 <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="la la-ellipsis-v"></i></a></li>
             </ul>
@@ -16,13 +16,13 @@
                 <ul class="nav navbar-nav mr-auto float-left">
                     <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a></li>
                     <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon ft-maximize"></i></a></li>
-                    <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>
-                        <div class="search-input">
-                            <input class="input" type="text" placeholder="Explore Modern..." tabindex="0" data-search="template-list">
-                            <div class="search-input-close"><i class="ft-x"></i></div>
-                            <ul class="search-list"></ul>
-                        </div>
-                    </li>
+{{--                    <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>--}}
+{{--                        <div class="search-input">--}}
+{{--                            <input class="input" type="text" placeholder="Explore Modern..." tabindex="0" data-search="template-list">--}}
+{{--                            <div class="search-input-close"><i class="ft-x"></i></div>--}}
+{{--                            <ul class="search-list"></ul>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
                 </ul>
                 <ul class="nav navbar-nav float-right">
                     <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up badge-glow">5</span></a>
@@ -79,7 +79,7 @@
                             </li>
                             <li class="scrollable-container media-list w-100"><a href="javascript:void(0)">
                                     <div class="media">
-                                        <div class="media-left"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span></div>
+                                        <div class="media-left"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="" alt="avatar"><i></i></span></div>
                                         <div class="media-body">
                                             <h6 class="media-heading">Margaret Govan</h6>
                                             <p class="notification-text font-small-3 text-muted">I like your portfolio, let's start.</p><small>
@@ -87,7 +87,7 @@
                                         </div>
                                     </div></a><a href="javascript:void(0)">
                                     <div class="media">
-                                        <div class="media-left"><span class="avatar avatar-sm avatar-busy rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span></div>
+                                        <div class="media-left"><span class="avatar avatar-sm avatar-busy rounded-circle"><img src="" alt="avatar"><i></i></span></div>
                                         <div class="media-body">
                                             <h6 class="media-heading">Bret Lezama</h6>
                                             <p class="notification-text font-small-3 text-muted">I have seen your work, there is</p><small>
@@ -95,7 +95,7 @@
                                         </div>
                                     </div></a><a href="javascript:void(0)">
                                     <div class="media">
-                                        <div class="media-left"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span></div>
+                                        <div class="media-left"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="" alt="avatar"><i></i></span></div>
                                         <div class="media-body">
                                             <h6 class="media-heading">Carie Berra</h6>
                                             <p class="notification-text font-small-3 text-muted">Can we have call in this week ?</p><small>
@@ -103,7 +103,7 @@
                                         </div>
                                     </div></a><a href="javascript:void(0)">
                                     <div class="media">
-                                        <div class="media-left"><span class="avatar avatar-sm avatar-away rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span></div>
+                                        <div class="media-left"><span class="avatar avatar-sm avatar-away rounded-circle"><img src="" alt="avatar"><i></i></span></div>
                                         <div class="media-body">
                                             <h6 class="media-heading">Eric Alsobrook</h6>
                                             <p class="notification-text font-small-3 text-muted">We have project party this saturday.</p><small>

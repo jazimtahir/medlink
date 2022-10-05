@@ -1,6 +1,6 @@
 /*=========================================================================================
     File Name: datatable-api.js
-    Description: API Datatable 
+    Description: API Datatable
     ----------------------------------------------------------------------------------------
     Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
     Author: Pixinvent
@@ -118,7 +118,7 @@ return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50
 
 
 var tableChildRows = $('.show-child-rows').DataTable( {
-    "ajax": "../../../app-assets/data/datatables/ajax-child-rows.json",
+    "ajax": "../../../assets/data/datatables/ajax-child-rows.json",
     "columns": [
         {
             "className":      'details-control',
@@ -238,7 +238,7 @@ $('.show-child-rows tbody').on('click', 'td.details-control', function () {
         $('#global_smart').prop('checked')
     ).draw();
     }
-     
+
     function filterColumn ( i ) {
         $('.search-api').DataTable().column( i ).search(
             $('#col'+i+'_filter').val(),
@@ -246,14 +246,14 @@ $('.show-child-rows tbody').on('click', 'td.details-control', function () {
             $('#col'+i+'_smart').prop('checked')
         ).draw();
     }
-     
+
     $(document).ready(function() {
         $('.search-api').DataTable();
-     
+
         $('input.global_filter').on( 'keyup click', function () {
             filterGlobal();
         } );
-     
+
         $('input.column_filter').on( 'keyup click', function () {
             filterColumn( $(this).parents('tr').attr('data-column') );
         } );

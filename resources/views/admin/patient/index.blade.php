@@ -53,7 +53,9 @@
                                         <tbody>
                                         @foreach($patients as $patient)
                                             <tr>
-                                                <td><img src="{{ $patient->getImg() }}" class="img-sm"></td>
+                                                <td>
+                                                    <img class="avatar avatar-lg" src="{{ $patient->getImg() }}">
+                                                </td>
                                                 <td>{{ $patient->username }}</td>
                                                 <td>{{ $patient->first_name }}</td>
                                                 <td>{{ $patient->last_name }}</td>
@@ -138,17 +140,22 @@
 
                                                                         <label>Bio: </label>
                                                                         <div class="form-group position-relative">
-                                                                            <textarea class="form-control" rows="5" name="bio" placeholder="Enter text ...">{{ $patient->bio }}</textarea>
+                                                                            <textarea class="form-control" rows="5" name="bio" placeholder="Enter bio ...">{{ $patient->bio }}</textarea>
+                                                                        </div>
+
+                                                                        <label>Address: </label>
+                                                                        <div class="form-group position-relative">
+                                                                            <textarea class="form-control" rows="3" name="address" placeholder="Enter address ...">{{ $patient->address }}</textarea>
                                                                         </div>
 
                                                                         <label>Date of Birth: </label>
                                                                         <div class="form-group position-relative">
-                                                                            <input type="date" class="form-control" id="dob" name="dob" value="{{ $patient->dob }}">
+                                                                            <input type="text" class="date-picker form-control" name="dob" value="{{ $patient->dob }}">
                                                                         </div>
 
                                                                         <label>Profile Picture: </label>
                                                                         <div class="form-group position-relative">
-                                                                            <input type="file" class="form-control" id="image" name="image">
+                                                                            <input type="file" class="form-control" name="image">
                                                                         </div>
 
                                                                         <label>Activation Status: </label>

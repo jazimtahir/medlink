@@ -18,6 +18,8 @@
 <script src="{{ asset('assets/vendors/js/tables/vfs_fonts.js') }}"></script>
 <script src="{{ asset('assets/vendors/js/tables/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('assets/vendors/js/tables/buttons.print.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/extensions/datedropper.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/extensions/timedropper.min.js') }}"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
@@ -32,4 +34,5 @@
 <script src="{{ asset('assets/js/scripts/pages/dashboard-ecommerce.min.js') }}"></script>
 <script src="{{ asset('assets/js/scripts/ui/breadcrumbs-with-stats.min.js') }}"></script>
 <script src="{{ asset('assets/js/scripts/tables/datatables/datatable-advanced.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts/extensions/date-time-dropper.min.js') }}"></script>
 <!-- END: Page JS-->

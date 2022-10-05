@@ -38,6 +38,18 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item @if(request()->routeIs('admin.specialization.*')) active @endif">
+                <a class="nav-link" href="{{ route('admin.specialization.index') }}">
+                    <i class="ft ft-clipboard"></i><span>Specializations</span>
+                </a>
+            </li>
+            @endrole
+            @role('doctor')
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    <i class="la la-hourglass"></i><span>My Schedule</span>
+                </a>
+            </li>
             @endrole
         </ul>
     </div>

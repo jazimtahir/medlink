@@ -107,8 +107,36 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-3 label-control" for="dob">Date of Birth</label>
                                                     <div class="col-md-9 mx-auto">
-                                                        <input type="date" id="dob" class="form-control" placeholder="Last Name" name="dob" value="{{ old('dob') }}" required>
+                                                        <input type="text" class="date-picker form-control" placeholder="Date of Birth" name="dob" value="{{ old('dob') }}" required>
                                                         @error('dob')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="salutation">Salutation</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="text" id="salutation" class="form-control" placeholder="Mr. Mrs. Dr." name="salutation" required>
+                                                        @error('salutation')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="password">Password</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="password" id="password" class="form-control" placeholder="Password" name="password" required>
+                                                        @error('password')
                                                         <span class="text-danger">
                                                             {{ $message }}
                                                         </span>
@@ -144,10 +172,10 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="password">Password</label>
+                                                    <label class="col-md-3 label-control" for="address">Address</label>
                                                     <div class="col-md-9 mx-auto">
-                                                        <input type="password" id="password" class="form-control" placeholder="Password" name="password" required>
-                                                        @error('password')
+                                                        <textarea id="address" rows="5" class="form-control" name="address" placeholder="Enter Address...">{{ old('address') }}</textarea>
+                                                        @error('address')
                                                         <span class="text-danger">
                                                             {{ $message }}
                                                         </span>
@@ -253,8 +281,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-md-3 label-control" for="specialization_id">Specialization</label>
-                                                    <div class="col-md-9 mx-auto mt-1">
-                                                        <select class="form-control" name="specialization_id">
+                                                    <div class="col-md-9 mx-auto">
+                                                        <select class="custom-select form-control" name="specialization_id">
                                                             <option></option>
                                                             @foreach($specialization as $s)
                                                                 <option class="form-control" value="{{ $s->id }}">{{ $s->name }}</option>
@@ -262,6 +290,34 @@
                                                         </select>
                                                         @error('specialization_id')
                                                                 <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="fee">Fee</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="number" class="form-control" name="fee" placeholder="Fee" value="{{ old('fee') }}" required>
+                                                        @error('fee')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="practicing_from">Practicing From</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <input type="text" class="date-picker form-control" name="practicing_from" placeholder="Practicing From" value="{{ old('practicing_from') }}" required>
+                                                        @error('practicing_from')
+                                                        <span class="text-danger">
                                                             {{ $message }}
                                                         </span>
                                                         @enderror

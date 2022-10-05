@@ -107,7 +107,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-3 label-control" for="dob">Date of Birth</label>
                                                     <div class="col-md-9 mx-auto">
-                                                        <input type="date" id="dob" class="form-control" placeholder="Last Name" name="dob" value="{{ old('dob') }}" required>
+                                                        <input type="text" class="date-picker form-control" placeholder="Date of Birth" name="dob" value="{{ old('dob') }}" required>
                                                         @error('dob')
                                                         <span class="text-danger">
                                                             {{ $message }}
@@ -184,6 +184,19 @@
                                                     <div class="col-md-9 mx-auto">
                                                         <textarea id="bio" rows="5" class="form-control" name="bio" placeholder="Enter Bio...">{{ old('bio') }}</textarea>
                                                         @error('bio')
+                                                        <span class="text-danger">
+                                                            {{ $message }}
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="address">Address</label>
+                                                    <div class="col-md-9 mx-auto">
+                                                        <textarea id="address" rows="5" class="form-control" name="address" placeholder="Enter Address...">{{ old('address') }}</textarea>
+                                                        @error('address')
                                                         <span class="text-danger">
                                                             {{ $message }}
                                                         </span>

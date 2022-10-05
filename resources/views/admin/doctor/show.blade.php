@@ -67,6 +67,10 @@
                                     <td>{{ $doctor->username }}</td>
                                 </tr>
                                 <tr>
+                                    <td class="h4">Salutation:</td>
+                                    <td>{{ $doctor->doctor->salutation }}</td>
+                                </tr>
+                                <tr>
                                     <td class="h4">First Name:</td>
                                     <td>{{ $doctor->first_name }}</td>
                                 </tr>
@@ -84,7 +88,7 @@
                                 </tr>
                                 <tr>
                                     <td class="h4">Date of Birth:</td>
-                                    <td>{{ date('d-m-Y', strtotime($doctor->dob)) }}</td>
+                                    <td>{{ date('d-M-Y', strtotime($doctor->dob)) }}</td>
                                 </tr>
                                 <tr>
                                     <td class="h4">Address:</td>
@@ -93,6 +97,14 @@
                                 <tr>
                                     <td class="h4">Bio:</td>
                                     <td>{{ $doctor->bio }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="h4">Fee:</td>
+                                    <td>{{ $doctor->doctor->fee }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="h4">Practicing From:</td>
+                                    <td>{{ date('d-M-Y', strtotime($doctor->doctor->practicing_from)) }}</td>
                                 </tr>
                                 <tr>
                                     <td class="h4">Created at:</td>

@@ -59,4 +59,12 @@ class User extends Authenticatable
     public function getImg() {
         return ($this->image) ? asset('storage/images/' . $this->image) : asset('assets/images/default.png');
     }
+
+    public function reviews_to_me(){
+        return $this->hasMany(UserReview::class, 'to_user_id');
+    }
+
+    public function my_reviews(){
+        return $this->hasMany(UserReview::class, 'from_user_id');
+    }
 }

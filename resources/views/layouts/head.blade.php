@@ -18,6 +18,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/charts/chartist.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/charts/chartist-plugin-tooltip.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/tables/datatable/datatables.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/extensions/datedropper.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/extensions/timedropper.min.css') }}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
