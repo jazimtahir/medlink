@@ -45,8 +45,8 @@
             </li>
             @endrole
             @role('doctor')
-            <li class="nav-item">
-                <a class="nav-link" href="">
+            <li class="nav-item @if(request()->routeIs('doctor.schedule')) active @endif">
+                <a class="nav-link" href="{{ route('doctor.schedule') }}">
                     <i class="la la-hourglass"></i><span>My Schedule</span>
                 </a>
             </li>

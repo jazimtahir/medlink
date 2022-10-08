@@ -20,6 +20,9 @@
 <script src="{{ asset('assets/vendors/js/tables/buttons.print.min.js') }}"></script>
 <script src="{{ asset('assets/vendors/js/extensions/datedropper.min.js') }}"></script>
 <script src="{{ asset('assets/vendors/js/extensions/timedropper.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/forms/toggle/bootstrap-switch.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/forms/toggle/switchery.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/forms/toggle/bootstrap-checkbox.min.js') }}"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
@@ -35,4 +38,8 @@
 <script src="{{ asset('assets/js/scripts/ui/breadcrumbs-with-stats.min.js') }}"></script>
 <script src="{{ asset('assets/js/scripts/tables/datatables/datatable-advanced.min.js') }}"></script>
 <script src="{{ asset('assets/js/scripts/extensions/date-time-dropper.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts/forms/switch.min.js') }}"></script>
 <!-- END: Page JS-->
+
+<!-- timepicker -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>

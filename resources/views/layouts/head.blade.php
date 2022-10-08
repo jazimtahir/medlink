@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/tables/datatable/datatables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/extensions/datedropper.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/extensions/timedropper.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/forms/toggle/bootstrap-switch.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/forms/toggle/switchery.min.css') }}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -42,4 +44,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
     <!-- END: Custom CSS-->
 
+    <!-- timepicker -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
