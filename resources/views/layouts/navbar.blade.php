@@ -50,6 +50,18 @@
                     <i class="la la-hourglass"></i><span>My Schedule</span>
                 </a>
             </li>
+            <li class="nav-item @if(request()->routeIs('doctor.appointment')) active @endif">
+                <a class="nav-link" href="{{ route('doctor.appointment') }}">
+                    <i class="la la-group"></i><span>My Appointments</span>
+                </a>
+            </li>
+            @endrole
+            @role('patient')
+            <li class="nav-item @if(request()->routeIs('patient.appointment')) active @endif">
+                <a class="nav-link" href="{{ route('patient.appointment') }}">
+                    <i class="la la-group"></i><span>My Appointments</span>
+                </a>
+            </li>
             @endrole
         </ul>
     </div>
