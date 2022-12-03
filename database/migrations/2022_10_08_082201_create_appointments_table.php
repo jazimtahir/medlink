@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
             $table->time('start_time');
             $table->time('end_time');
+            $table->integer('day');
             $table->string('reason')->nullable();
             $table->string('doctor_comment')->nullable();
             $table->string('status')->nullable();

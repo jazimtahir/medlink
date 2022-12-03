@@ -57,7 +57,12 @@
             </li>
             @endrole
             @role('patient')
-            <li class="nav-item @if(request()->routeIs('patient.appointment')) active @endif">
+            <li class="nav-item @if(request()->routeIs('patient.appointment.doctors') || request()->routeIs('patient.appointment.schedule')) active @endif">
+                <a class="nav-link" href="{{ route('patient.appointment.doctors') }}">
+                    <i class="la la-plus"></i><span>Schedule New Appointment</span>
+                </a>
+            </li>
+            <li class="nav-item @if(request()->routeIs('patient.appointment.index')) active @endif">
                 <a class="nav-link" href="{{ route('patient.appointment') }}">
                     <i class="la la-group"></i><span>My Appointments</span>
                 </a>

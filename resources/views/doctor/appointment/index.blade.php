@@ -25,6 +25,16 @@
                             <h4 class="card-title">Appointments</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                         </div>
+                        @if(session()->has('message'))
+                            {!! '
+                                <div class=" col-6 offset-3 alert alert-success alert-dismissible mb-2" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <strong>Success! </strong>'.session()->get('message').'
+                                </div>
+                            ' !!}
+                        @endif
                         @if($errors->any())
                             {!! implode('', $errors->all('
                                 <div class=" col-6 offset-3 alert alert-danger alert-dismissible mb-2" role="alert">
@@ -38,11 +48,12 @@
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard dataTables_wrapper dt-bootstrap">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered dom-jQuery-events">
+                                    <table class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
                                             <th>Id</th>
                                             <th>Patient Username</th>
+                                            <th>Day</th>
                                             <th>Start Time</th>
                                             <th>End Time</th>
                                             <th>Status</th>
@@ -55,6 +66,7 @@
                                             <tr>
                                                 <td>{{ $appointment->id }}</td>
                                                 <td>{{ $appointment->patient->user->username }}</td>
+                                                <td>{{ $appointment->dayName() }}</td>
                                                 <td>{{ $appointment->start12() }}</td>
                                                 <td>{{ $appointment->end12() }}</td>
                                                 <td>
@@ -81,12 +93,12 @@
                                                         {{--                                                            <i class="la la-edit"></i>--}}
                                                         {{--                                                        </a>--}}
                                                         @if($appointment->status == 'BOOKED')
-                                                            <a class="btn btn-sm btn-outline-success mr-1" href="{{ route('doctor.appointment.done', [$appointment->id]) }}" onclick="return confirm('Paid and Completed ?')">
+                                                            <button class="btn btn-sm btn-outline-success mr-1" onclick="doneModal({{ $appointment->id }})">
                                                                 <i class="la la-check"></i>
-                                                            </a>
-                                                            <a class="btn btn-sm btn-outline-danger" href="{{ route('doctor.appointment.cancel', [$appointment->id]) }}" onclick="return confirm('Are you sure?')">
+                                                            </button>
+                                                            <button class="btn btn-sm btn-outline-danger" onclick="cancelModal({{ $appointment->id }})">
                                                                 <i class="la la-close"></i>
-                                                            </a>
+                                                            </button>
                                                         @endif
                                                     </div>
                                                     {{--                                                edit modal--}}
@@ -104,13 +116,16 @@
                                                                         <div class="col">
                                                                             <b>Patient Username:</b> {{ $appointment->patient->user->username }}
                                                                         </div>
+                                                                        <div class="col">
+                                                                            <b>Day:</b> {{ $appointment->dayName() }}
+                                                                        </div>
                                                                     </div>
                                                                     <div class="row mb-1">
                                                                         <div class="col">
-                                                                            <b>Start Time:</b> {{ $appointment->start_time }}
+                                                                            <b>Start Time:</b> {{ $appointment->start12() }}
                                                                         </div>
                                                                         <div class="col">
-                                                                            <b>End Time:</b> {{ $appointment->end_time }}
+                                                                            <b>End Time:</b> {{ $appointment->end12() }}
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mb-1">
@@ -118,10 +133,10 @@
                                                                             <b>Reason for Appointment:</b> {{ $appointment->reason }}
                                                                         </div>
                                                                     </div>
-                                                                    @if($appointment->patient_comment)
+                                                                    @if($appointment->doctor_comment)
                                                                         <div class="row mb-1">
                                                                             <div class="col">
-                                                                                <b>Doctor Remarks:</b> {{ $appointment->patient_comment }}
+                                                                                <b>Doctor Remarks:</b> {{ $appointment->doctor_comment }}
                                                                             </div>
                                                                         </div>
                                                                     @endif
@@ -172,4 +187,62 @@
             </div>
         </section>
     </div>
+    <!----modal starts here--->
+    <div id="cancelModal" class="modal fade" role='dialog'>
+        <div class="modal-dialog">
+            <form method="POST" action="{{ route('doctor.appointment.cancel') }}">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cancel Appointment</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="reason">Reason for Cancellation ?</label>
+                            @csrf
+                            @method('POST')
+                            <span id="cancelAppointment"></span>
+                            <input id="reason" type="text" class="form-control" name="reason" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Back</button>
+                        <button type="submit" class="btn btn-danger">Cancel Appointment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--Modal ends here--->
+    <!----modal starts here--->
+    <div id="doneModal" class="modal fade" role='dialog'>
+        <div class="modal-dialog">
+            <form method="POST" action="{{ route('doctor.appointment.done') }}">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Mark Appointment as Complete</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="doctor_comment">Remarks:</label>
+                            @csrf
+                            @method('POST')
+                            <span id="doneAppointment"></span>
+                            <input id="doctor_comment" type="text" class="form-control" name="doctor_comment">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Back</button>
+                        <button type="submit" class="btn btn-success">Mark Appointment as Complete</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--Modal ends here--->
 @endsection
+<script>
+    function cancelModal(id) {
+        $('#cancelModal').modal();
+        $('#cancelAppointment').html('<input hidden type="text" class="form-control" name="appointment" value="'+ id +'">');
+    }
+    function doneModal(id) {
+        $('#doneModal').modal();
+        $('#doneAppointment').html('<input hidden type="text" class="form-control" name="appointment" value="'+ id +'">');
+    }
+</script>
