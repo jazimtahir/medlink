@@ -49,4 +49,11 @@ class Doctor extends Model
     public function doneAppointments() {
         return $this->appointments()->where('status', 'DONE');
     }
+
+    public function getActiveAppointmentsByDay($day) {
+        return $this->appointments()
+            ->where('day',$day)
+            ->where('status', 'BOOKED')
+            ->get();
+    }
 }

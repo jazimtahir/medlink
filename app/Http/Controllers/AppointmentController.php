@@ -26,7 +26,7 @@ class AppointmentController extends Controller
     }
 
     public function schedule($id) {
-        $doctor = Doctor::find($id);
+        $doctor = Doctor::findOrFail($id);
         $availableSlots = [];
         foreach($doctor->schedule as $key=>$schedule) {
             if($schedule->status != 1) {
@@ -35,20 +35,31 @@ class AppointmentController extends Controller
             if($schedule->times()->count()) {
                 $availableSlots[$key]['day'] = $schedule->dayName();
             }
+            $count = 0;
             foreach($schedule->times as $k=>$time) {
+                $currentIterationDayAppointment = $doctor->getActiveAppointmentsByDay($schedule->day);
                 $StartTime    = strtotime($time->start_time); //Get Timestamp
                 $EndTime      = strtotime($time->end_time); //Get Timestamp
 
                 $sessionMins  = $schedule->session_time * 60;
                 $gapMins  = $schedule->gap_time * 60;
-
                 while ($StartTime <= $EndTime) //Run loop
                 {
                     $nextPossible = $StartTime + $sessionMins;
+                    $status = 1;
+                    foreach($currentIterationDayAppointment as $cida) {
+                        $st = strtotime($cida->start_time);
+                        $et = strtotime($cida->end_time);
+                        if(($StartTime == $st) && ($nextPossible == $et)){
+                            $status = 0;
+                        }
+                    }
                     if($EndTime >= $nextPossible) {
-                        $availableSlots[$key]['timeslots'][] = date ("g:i A", $StartTime) . ' - ' . date ("g:i A", ($StartTime += $sessionMins));
+                        $availableSlots[$key]['timeslots'][$count]['time'] = date ("g:i A", $StartTime) . ' - ' . date ("g:i A", ($StartTime += $sessionMins));
+                        $availableSlots[$key]['timeslots'][$count]['status'] = $status;
                     }
                     $StartTime += $gapMins;
+                    $count++;
                 }
             }
         }

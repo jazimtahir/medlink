@@ -30,7 +30,7 @@
                     <label for="reason">Please specify reason for appointment: </label>
                     <input id="reason" class="form-control" type="text" name="reason" required>
                     <hr>
-                    @foreach($availableSlots as $slot)
+                    @foreach($availableSlots as $key => $slot)
                         <div class="row">
                             <div class="col-2">
                                 <h2>
@@ -40,13 +40,13 @@
                             <div class="col-10">
                                 <div class="row">
                                     @foreach($slot['timeslots'] as $k => $timeslot)
-                                        <form id="form{{ $k }}" action="{{ route('patient.appointment.schedule.confirm', [$doctor->id]) }}" method="POST">
+                                        <form id="form{{ $key+1 . $k+1 }}" action="{{ route('patient.appointment.schedule.confirm', [$doctor->id]) }}" method="POST">
                                             @csrf
                                             @method('POST')
                                             <input hidden type="text" name="day" value="{{ $slot['day'] }}">
-                                            <input hidden type="text" name="timeslot" value="{{ $timeslot }}">
-                                            <span id="formReason{{ $k }}"></span>
-                                            <button onclick="submitForm({{ $k }})" class="m-1 text-white btn btn-lg btn-info">{{ $timeslot }}</button>
+                                            <input hidden type="text" name="timeslot" value="{{ $timeslot['time'] }}">
+                                            <span id="formReason{{ $key+1 . $k+1 }}"></span>
+                                            <button onclick="submitForm({{ $key+1 . $k+1 }})" class="m-1 text-white btn btn-lg @if($timeslot['status'] == 1) btn-info @else btn-danger @endif" @if($timeslot['status'] == 0) disabled @endif>{{ $timeslot['time'] }}</button>
                                         </form>
                                         <br>
                                     @endforeach
