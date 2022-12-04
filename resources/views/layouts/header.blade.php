@@ -7,7 +7,7 @@
                 <li class="nav-item">
                     <a class="navbar-brand" href="{{ route('dashboard') }}">
                         <img class="brand-logo" alt="" src="{{ asset('assets/images/logo/logo-new.png') }}">
-                        <h3 class="brand-text">HealthCare</h3></a></li>
+                        <h3 class="brand-text">MedLink</h3></a></li>
                 <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="la la-ellipsis-v"></i></a></li>
             </ul>
         </div>

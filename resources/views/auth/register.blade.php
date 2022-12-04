@@ -9,7 +9,7 @@
                     <div class="card-title text-center">
                         <div class="d-flex justify-content-center align-items-end">
                             <img class="img-sm" src="{{ asset('assets/images/logo/logo-new.png') }}" alt="branding logo">
-                            <h4 class="brand-text">HealthCare</h4>
+                            <h4 class="brand-text">MedLink</h4>
                         </div>
                     </div>
                     <h6 class="line-on-side text-center pt-2"><span>Register</span></h6>
@@ -146,7 +146,7 @@
                                     </div>
                                 </fieldset>
                             </div>
-                            <button type="submit" class="btn btn-outline-info btn-block col-lg-6 offset-lg-3"><i class="la la-user"></i> Register</button>
+                            <button type="submit" class="btn btn-outline-primary btn-block col-lg-6 offset-lg-3"><i class="la la-user"></i> Register</button>
                         </form>
                     </div>
                     <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1"><span>Already have an Account

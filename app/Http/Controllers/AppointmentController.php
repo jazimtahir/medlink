@@ -77,12 +77,12 @@ class AppointmentController extends Controller
             'start_time' => $start_time,
             'end_time' => $end_time,
             'day' => $day,
+            'reason' => $request->reason,
             'status' => 'BOOKED',
             'paid' => 0,
         ]);
         session()->flash('message', 'Appointment Scheduled Successful!');
-        return view('patient.appointment.index')
-            ->with('appointments', auth()->user()->patient->appointments);
+        return redirect()->route('patient.appointment');
     }
 
     public function done(Request $request) {

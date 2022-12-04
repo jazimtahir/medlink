@@ -26,6 +26,9 @@
                     <div>
                         You are scheduling an appointment with <b>{{ $doctor->salutation . ' ' . $doctor->user->first_name . ' ' . $doctor->user->last_name }}</b>
                     </div>
+                    <br>
+                    <label for="reason">Please specify reason for appointment: </label>
+                    <input id="reason" class="form-control" type="text" name="reason" required>
                     <hr>
                     @foreach($availableSlots as $slot)
                         <div class="row">
@@ -36,13 +39,14 @@
                             </div>
                             <div class="col-10">
                                 <div class="row">
-                                    @foreach($slot['timeslots'] as $timeslot)
-                                        <form action="{{ route('patient.appointment.schedule.confirm', [$doctor->id]) }}" method="POST">
+                                    @foreach($slot['timeslots'] as $k => $timeslot)
+                                        <form id="form{{ $k }}" action="{{ route('patient.appointment.schedule.confirm', [$doctor->id]) }}" method="POST">
                                             @csrf
                                             @method('POST')
                                             <input hidden type="text" name="day" value="{{ $slot['day'] }}">
                                             <input hidden type="text" name="timeslot" value="{{ $timeslot }}">
-                                            <button type="submit" class="m-1 text-white btn btn-lg btn-info">{{ $timeslot }}</button>
+                                            <span id="formReason{{ $k }}"></span>
+                                            <button onclick="submitForm({{ $k }})" class="m-1 text-white btn btn-lg btn-info">{{ $timeslot }}</button>
                                         </form>
                                         <br>
                                     @endforeach
@@ -56,3 +60,17 @@
         </section>
     </div>
 @endsection
+<script>
+    function submitForm(id) {
+        event.preventDefault();
+        let form = $('#form'+id);
+        let reason = $('#reason').val();
+        if(!reason) {
+            alert('Reason is required!');
+            return;
+        }
+        $('#formReason'+id).html('<input hidden type="text" name="reason" value="'+ reason +'">');
+        form = $('#form'+id);
+        form.submit();
+    }
+</script>

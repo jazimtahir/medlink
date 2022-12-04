@@ -9,7 +9,7 @@
                     <div class="card-title text-center">
                         <div class="d-flex justify-content-center align-items-end">
                             <img class="img-sm" src="{{ asset('assets/images/logo/logo-new.png') }}" alt="branding logo">
-                            <h4 class="brand-text">HealthCare</h4>
+                            <h4 class="brand-text">MedLink</h4>
                         </div>
                     </div>
                     <h6 class="line-on-side text-center pt-2"><span>Login</span></h6>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="col-sm-6 col-12 float-sm-left text-center text-sm-right"><a href="#" class="card-link">Forgot Password?</a></div>
                             </div>
-                            <button type="submit" class="btn btn-outline-info btn-block"><i class="ft-unlock"></i> Login</button>
+                            <button type="submit" class="btn btn-outline-primary btn-block"><i class="ft-unlock"></i> Login</button>
                         </form>
                     </div>
                     <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1"><span>Don't Have an Account

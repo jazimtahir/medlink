@@ -43,23 +43,25 @@
                                                 <div class="badge badge-danger">Unverified</div>
                                             @endif
                                         </h4>
-                                        <h4 class="card-title"><span>@</span>{{ $doctor->username }}</h4>
-                                        <h4 class="card-title">{{ $doctor->first_name . ' ' . $doctor->last_name }}</h4>
-                                        <small class="card-title text-sm">
+                                        <h4 class="card-title"><span>@</span>{{ $doctor->username }}
                                             @switch($doctor->gender)
                                                 @case('M')
-                                                    Male
+                                                    <small>(Male)</small>
                                                     @break
                                                 @case('F')
-                                                    Female
+                                                    <small>(Female)</small>
                                                     @break
                                                 @case('T')
-                                                    Other
+                                                    <small>(Other)</small>
                                                     @break
                                                 @default
-                                                    No Gender provided
+                                                    <small>(No Gender provided)</small>
                                             @endswitch
-                                        </small>
+                                        </h4>
+                                        <h4 class="card-title">{{ (($doctor->doctor->salutation != null) ? ($doctor->doctor->salutation . '. ') : '') . $doctor->first_name . ' ' . $doctor->last_name }}</h4>
+                                        @if($doctor->doctor->specialization)
+                                            <h5 class="card-title text-muted">Specialized in {{ $doctor->doctor->specialization->name }}</h5>
+                                        @endif
                                         <h4 class="card-title">Fee: <i>PKR </i>{{ $doctor->doctor->fee ?? 'N/A' }}</h4>
                                         <h6 class="card-subtitle text-muted mt-1">
                                             @php
