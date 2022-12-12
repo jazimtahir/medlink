@@ -17,7 +17,18 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/';
+
+    /**
+     * The path to the "dashboard" route for your application.
+     *
+     * Typically, users are redirected here after authentication.
+     *
+     * @var string
+     */
+    public const ADMIN_DASHBOARD = '/admin/dashboard';
+    public const DOCTOR_DASHBOARD = '/doctor/dashboard';
+    public const PATIENT_DASHBOARD = '/patient/dashboard';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -35,6 +46,21 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware(['web', 'auth', 'role:admin'])
+                ->prefix('admin')
+                ->name('admin.')
+                ->group(base_path('routes/admin/routes.php'));
+
+            Route::middleware(['web', 'auth', 'role:doctor'])
+                ->prefix('doctor')
+                ->name('doctor.')
+                ->group(base_path('routes/doctor/routes.php'));
+
+            Route::middleware(['web', 'auth', 'role:patient'])
+                ->prefix('patient')
+                ->name('patient.')
+                ->group(base_path('routes/patient/routes.php'));
         });
     }
 

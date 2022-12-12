@@ -1,230 +1,45 @@
-<script src="{{ asset('assets/plugins/jQuery/jquery-1.12.4.min.js') }}" type="text/javascript"></script>
-<!-- jquery-ui -->
-<script src="{{ asset('assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js') }}" type="text/javascript"></script>
-<!-- Bootstrap -->
-<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<!-- lobipanel -->
-<script src="{{ asset('assets/plugins/lobipanel/lobipanel.min.js') }}" type="text/javascript"></script>
-<!-- Pace js -->
-<script src="{{ asset('assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
-<!-- SlimScroll -->
-<script src="{{ asset('assets/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
-<!-- FastClick -->
-<script src="{{ asset('assets/plugins/fastclick/fastclick.min.js') }}" type="text/javascript"></script>
-<!-- Hadmin frame -->
-<script src="{{ asset('assets/dist/js/custom1.js') }}" type="text/javascript"></script>
-<!-- End Core Plugins
-=====================================================================-->
-<!-- Start Page Lavel Plugins
-=====================================================================-->
-<!-- Toastr js -->
-<script src="{{ asset('assets/plugins/toastr/toastr.min.js') }}" type="text/javascript"></script>
-<!-- Sparkline js -->
-<script src="{{ asset('assets/plugins/sparkline/sparkline.min.js') }}" type="text/javascript"></script>
-<!-- Data maps js -->
-<script src="{{ asset('assets/plugins/datamaps/d3.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/plugins/datamaps/topojson.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/plugins/datamaps/datamaps.all.min.js') }}" type="text/javascript"></script>
-<!-- Counter js -->
-<script src="{{ asset('assets/plugins/counterup/waypoints.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/plugins/counterup/jquery.counterup.min.js') }}" type="text/javascript"></script>
-<!-- ChartJs JavaScript -->
-<script src="{{ asset('assets/plugins/chartJs/Chart.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/plugins/emojionearea/emojionearea.min.js') }}" type="text/javascript"></script>
-<!-- Monthly js -->
-<script src="{{ asset('assets/plugins/monthly/monthly.js') }}" type="text/javascript"></script>
-<!-- Data maps -->
-<script src="{{ asset('assets/plugins/datamaps/d3.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/plugins/datamaps/topojson.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/plugins/datamaps/datamaps.all.min.js') }}" type="text/javascript"></script>
+<!-- BEGIN: Vendor JS-->
+<script src="{{ asset('assets/vendors/js/vendors.min.js') }}"></script>
+<!-- BEGIN Vendor JS-->
 
-<!-- End Page Lavel Plugins
-=====================================================================-->
-<!-- Start Theme label Script
-=====================================================================-->
-<!-- Dashboard js -->
-<script src="{{ asset('assets/dist/js/custom.js') }}" type="text/javascript"></script>
+<!-- BEGIN: Page Vendor JS-->
+<script src="{{ asset('assets/vendors/js/ui/jquery.sticky.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/charts/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/charts/chartist.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/charts/chartist-plugin-tooltip.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/charts/raphael-min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/charts/morris.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/timeline/horizontal-timeline.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/tables/datatable/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/tables/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/tables/jszip.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/tables/pdfmake.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/tables/vfs_fonts.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/tables/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/tables/buttons.print.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/extensions/datedropper.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/extensions/timedropper.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/forms/toggle/bootstrap-switch.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/forms/toggle/switchery.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/js/forms/toggle/bootstrap-checkbox.min.js') }}"></script>
+<!-- END: Page Vendor JS-->
 
-<!-- End Theme label Script
-=====================================================================-->
-<script>
-    "use strict"; // Start of use strict
-    // notification
-    setTimeout(function () {
-        toastr.options = {
-            closeButton: true,
-            progressBar: true,
-            showMethod: 'slideDown',
-            timeOut: 1000
-        };
-        toastr.success('Responsive Admin Theme', 'Welcome to Health Admin');
+<!-- BEGIN: Theme JS-->
+<script src="{{ asset('assets/js/core/app-menu.min.js') }}"></script>
+<script src="{{ asset('assets/js/core/app.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts/customizer.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts/footer.min.js') }}"></script>
+<!-- END: Theme JS-->
 
-    }, 1300);
+<!-- BEGIN: Page JS-->
+<script src="{{ asset('assets/js/scripts/ui/breadcrumbs-with-stats.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts/pages/dashboard-ecommerce.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts/ui/breadcrumbs-with-stats.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts/tables/datatables/datatable-advanced.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts/extensions/date-time-dropper.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts/forms/switch.min.js') }}"></script>
+<!-- END: Page JS-->
 
-    //counter
-    $('.count-number').counterUp({
-        delay: 10,
-        time: 5000
-    });
-
-    //data maps
-    var basic_choropleth = new Datamap({
-        element: document.getElementById("map1"),
-        projection: 'mercator',
-        fills: {
-            defaultFill: "#009688",
-            authorHasTraveledTo: "#fa0fa0"
-        },
-        data: {
-            USA: {fillKey: "authorHasTraveledTo"},
-            JPN: {fillKey: "authorHasTraveledTo"},
-            ITA: {fillKey: "authorHasTraveledTo"},
-            CRI: {fillKey: "authorHasTraveledTo"},
-            KOR: {fillKey: "authorHasTraveledTo"},
-            DEU: {fillKey: "authorHasTraveledTo"}
-        }
-    });
-
-    var colors = d3.scale.category10();
-
-    window.setInterval(function () {
-        basic_choropleth.updateChoropleth({
-            USA: colors(Math.random() * 10),
-            RUS: colors(Math.random() * 100),
-            AUS: {fillKey: 'authorHasTraveledTo'},
-            BRA: colors(Math.random() * 50),
-            CAN: colors(Math.random() * 50),
-            ZAF: colors(Math.random() * 50),
-            IND: colors(Math.random() * 50)
-        });
-    }, 2000);
-
-    //bar chart
-    var ctx = document.getElementById("barChart");
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    data: [65, 59, 80, 81, 56, 55, 40, 25, 35, 51, 94, 16],
-                    borderColor: "#009688",
-                    borderWidth: "0",
-                    backgroundColor: "#009688"
-                },
-                {
-                    label: "My Second dataset",
-                    data: [28, 48, 40, 19, 86, 27, 90, 91, 41, 25, 34, 47],
-                    borderColor: "#009688",
-                    borderWidth: "0",
-                    backgroundColor: "#009688"
-                }
-            ]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-    //radar chart
-    var ctx = document.getElementById("radarChart");
-    var myChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-            labels: [["Eating", "Dinner"], ["Drinking", "Water"], "Sleeping", ["Designing", "Graphics"], "Coding", "Cycling", "Running"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    data: [65, 59, 66, 45, 56, 55, 40],
-                    borderColor: "#00968866",
-                    borderWidth: "1",
-                    backgroundColor: "rgba(0, 150, 136, 0.35)"
-                },
-                {
-                    label: "My Second dataset",
-                    data: [28, 12, 40, 19, 63, 27, 87],
-                    borderColor: "rgba(55, 160, 0, 0.7",
-                    borderWidth: "1",
-                    backgroundColor: "rgba(0, 150, 136, 0.35)"
-                }
-            ]
-        },
-        options: {
-            legend: {
-                position: 'top'
-            },
-            scale: {
-                ticks: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    // Message
-    $('.message_inner').slimScroll({
-        size: '3px',
-        height: '320px'
-    });
-
-    //emojionearea
-    $(".emojionearea").emojioneArea({
-        pickerPosition: "top",
-        tonesStyle: "radio"
-    });
-
-    //monthly calender
-    $('#m_calendar').monthly({
-        mode: 'event',
-        //jsonUrl: 'events.json',
-        //dataType: 'json'
-        xmlUrl: 'events.xml'
-    });
-
-
-    //line chart
-    var ctx = document.getElementById("lineChart");
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    borderColor: "rgba(0,0,0,.09)",
-                    borderWidth: "1",
-                    backgroundColor: "rgba(0,0,0,.07)",
-                    data: [22, 44, 67, 43, 76, 45, 12, 45, 65, 55, 42, 61, 73]
-                },
-                {
-                    label: "My Second dataset",
-                    borderColor: "#009688",
-                    borderWidth: "1",
-                    backgroundColor: "#009688",
-                    pointHighlightStroke: "#009688",
-                    data: [16, 32, 18, 26, 42, 33, 44, 24, 19, 16, 67, 71, 65]
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            tooltips: {
-                mode: 'index',
-                intersect: false
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
-            }
-
-        }
-    });
-
-
-</script>
+<!-- timepicker -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>

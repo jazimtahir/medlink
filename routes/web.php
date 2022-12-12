@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\FrontController::class, 'index']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['web', 'auth']], function() {
+    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+    Route::put('profile', [App\Http\Controllers\UserController::class, 'updateProfile'])->name('profile.update');
+    Route::get('reviews', [App\Http\Controllers\UserReviewController::class, 'index'])->name('reviews');
+    Route::post('reviews', [App\Http\Controllers\UserReviewController::class, 'create'])->name('reviews.create');
+});
