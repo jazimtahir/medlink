@@ -68,6 +68,12 @@
                 </a>
             </li>
             @endrole
+            <li class="dropdown nav-item @if(request()->routeIs('reviews')) active @endif">
+                <a class="nav-link" href="{{ route('reviews') }}">
+                    <i class="la la-comments"></i>
+                    <span data-i18n="Dashboard">Reviews</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

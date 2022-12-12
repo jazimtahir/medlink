@@ -7,10 +7,7 @@
             <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
                 <div class="card-header border-0">
                     <div class="card-title text-center">
-                        <div class="d-flex justify-content-center align-items-end">
-                            <img class="img-sm" src="{{ asset('assets/images/logo/logo-new.png') }}" alt="branding logo">
-                            <h4 class="brand-text">MedLink</h4>
-                        </div>
+                        <img class="w-25" src="{{ asset('assets/front/images/logo.png') }}" >
                     </div>
                     <h6 class="line-on-side text-center pt-2"><span>Register</span></h6>
                 </div>

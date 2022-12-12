@@ -116,7 +116,7 @@
                     <div class="col-lg-6 mb-30">
                         <div class="heading-bx">
                             <h6 class="title-ext text-secondary">About Us</h6>
-                            <h2 class="title">The Great Place Of Medical Hospital Center</h2>
+                            <h2 class="title">The Great Place Of Health Care</h2>
                             <p>We provide the special tips and advice’s of heath care treatment and high level of best technology involve in the our hospital.</p>
                         </div>
                         <div class="row">
@@ -209,30 +209,24 @@
                         <div class="work-bx">
                             <div class="work-num-bx">01</div>
                             <div class="work-content">
-                                <h5 class="title text-secondary mb-10">Make Appointmnet</h5>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of.</p>
+                                <h5 class="title text-secondary mb-10">Register</h5>
                             </div>
-                            <a href="booking.html" class="btn btn-primary light">View More <i class="btn-icon-bx fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-30">
                         <div class="work-bx active">
                             <div class="work-num-bx">02</div>
                             <div class="work-content">
-                                <h5 class="title text-secondary mb-10">Take Treatment</h5>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of.</p>
+                                <h5 class="title text-secondary mb-10">Book Appointment</h5>
                             </div>
-                            <a href="services.html" class="btn btn-primary light">View More <i class="btn-icon-bx fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-30">
                         <div class="work-bx">
                             <div class="work-num-bx">03</div>
                             <div class="work-content">
-                                <h5 class="title text-secondary mb-10">Registration</h5>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of.</p>
+                                <h5 class="title text-secondary mb-10">Take Treatment</h5>
                             </div>
-                            <a href="contact-us.html" class="btn btn-primary light">View More <i class="btn-icon-bx fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -250,34 +244,17 @@
                         <div class="row align-items-center">
                             <div class="col-xl-5 col-lg-6 col-md-6">
                                 <div class="appointment-form form-wraper">
-                                    <h3 class="title">Book Appointment</h3>
+                                    <h3 class="title">Book Appointment Now</h3>
                                     <form action="#">
                                         <div class="form-group">
-                                            <select class="form-select">
-                                                <option selected>Selecty Department</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-select">
-                                                <option selected>Select Doctor</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Your Name">
                                         </div>
                                         <div class="form-group">
-                                            <input type="number" class="form-control" placeholder="Phone Numbers">
+                                            <input type="text" class="form-control" placeholder="Email or Phone">
                                         </div>
-                                        <div class="form-group">
-                                            <input type="date" class="form-control">
-                                        </div>
-                                        <button type="submit" class="btn btn-secondary btn-lg">Appointment Now</button>
+                                        <a href="{{ route('register') }}" type="submit" class="btn btn-secondary btn-lg">Register</a>
                                     </form>
                                 </div>
                             </div>
@@ -312,7 +289,6 @@
                         <h2 class="title">We Cover A Big Variety Of Medical Services</h2>
                         <p>We provide the special tips and advice’s of heath care treatment and high level of best.</p>
                     </div>
-                    <a href="services.html" class="btn btn-secondary btn-lg shadow">All Services</a>
                 </div>
                 <div class="col-xl-8 mb-15">
                     <div class="swiper-container service-slide">
@@ -332,8 +308,7 @@
                                     </div>
                                     <div class="icon-content">
                                         <h3 class="ttr-title">Diagnostics</h3>
-                                        <p>Phasellus venenatis porta rhoncus. Integer et viverra felis.</p>
-                                        <a href="service-detail.html" class="btn btn-primary light">View More</a>
+                                        <p>Make appointment online and meet in real or virtual.</p>
                                     </div>
                                 </div>
                             </div>
@@ -352,7 +327,7 @@
                                     </div>
                                     <div class="icon-content">
                                         <h3 class="ttr-title">Treatment</h3>
-                                        <p>Phasellus venenatis porta rhoncus. Integer et viverra felis.</p>
+                                        <p>Make appointment online and meet in real or virtual.</p>
                                         <a href="service-detail.html" class="btn btn-primary light">View More</a>
                                     </div>
                                 </div>
@@ -451,10 +426,10 @@
                                 <div class="swiper-slide" data-rel="1">
                                     <div class="testimonial-bx">
                                         <div class="testimonial-content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecena ssuspendisse ultrices gravida.</p>
+                                            <p>Medlink provides very good service. As a patient i just need to register and book an appointment and all set to go</p>
                                         </div>
                                         <div class="client-info">
-                                            <h5 class="name">John Deo</h5>
+                                            <h5 class="name">Sara Ali</h5>
                                             <p>patient</p>
                                         </div>
                                         <div class="quote-icon">
@@ -560,14 +535,7 @@
                                 <a href="index-2.html"><img src="{{ asset('assets/front/images/logo.png') }}" alt=""></a>
                             </div>
                             <div class="ft-contact">
-                                <p>Lorem ipsum is dolor sit amet, csectetur adipiscing elit, dolore smod tempor incididunt ut labore et.</p>
-                                <div class="contact-bx">
-                                    <div class="icon"><i class="fas fa-phone-alt"></i></div>
-                                    <div class="contact-number">
-                                        <span>Contact Us</span>
-                                        <h4 class="number">+01 123 456 7890</h4>
-                                    </div>
-                                </div>
+                                <p>MedLink is an online platform that revolutionize healthcare services online by making able for Doctor and Patient to meet and book and appointment online</p>
                             </div>
                         </div>
                     </div>
@@ -579,8 +547,6 @@
                                 <li><a href="services.html"><span>Services</span></a></li>
                                 <li><a href="booking.html"><span>Booking</span></a></li>
                                 <li><a href="faq.html"><span>Faq's</span></a></li>
-                                <li><a href="blog-grid.html"><span>Blogs</span></a></li>
-                                <li><a href="team.html"><span>Out Team</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -588,12 +554,10 @@
                         <div class="widget footer_widget">
                             <h3 class="footer-title">Our Service</h3>
                             <ul>
-                                <li><a href="service-detail.html"><span>Dental Care</span></a></li>
-                                <li><a href="service-detail.html"><span>Cardiac Clinic</span></a></li>
-                                <li><a href="service-detail.html"><span>Massege Therapy</span></a></li>
-                                <li><a href="service-detail.html"><span>Cardiology</span></a></li>
-                                <li><a href="service-detail.html"><span>Precise Diagnosis</span></a></li>
-                                <li><a href="service-detail.html"><span>Abmbulance Services</span></a></li>
+                                <li><a href="service-detail.html"><span>Appointment</span></a></li>
+                                <li><a href="service-detail.html"><span>Reviews</span></a></li>
+                                <li><a href="service-detail.html"><span>Feedback</span></a></li>
+                                <li><a href="service-detail.html"><span>Treatment</span></a></li>
                             </ul>
                         </div>
                     </div>

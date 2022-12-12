@@ -22,4 +22,6 @@ Route::group(['middleware' => ['web', 'auth']], function() {
 
     Route::get('profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
     Route::put('profile', [App\Http\Controllers\UserController::class, 'updateProfile'])->name('profile.update');
+    Route::get('reviews', [App\Http\Controllers\UserReviewController::class, 'index'])->name('reviews');
+    Route::post('reviews', [App\Http\Controllers\UserReviewController::class, 'create'])->name('reviews.create');
 });

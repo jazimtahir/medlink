@@ -33,11 +33,15 @@ class DashboardController extends Controller
                 $activeDoctors = User::role('doctor')->where('is_active', 1)->count();
                 $totalPatients = User::role('patient')->count();
                 $activePatients = User::role('patient')->where('is_active', 1)->count();
+                $doctors = User::role('doctor')->where('is_active', 1   )->with('doctor')->get();
+                $specialization = Specialization::all();
                 return view('dashboard')
                     ->with('totalDoctors', $totalDoctors)
                     ->with('activeDoctors', $activeDoctors)
                     ->with('totalPatients', $totalPatients)
-                    ->with('activePatients', $activePatients);
+                    ->with('activePatients', $activePatients)
+                    ->with('doctors', $doctors)
+                    ->with('specialization', $specialization);
                 break;
             case 'patient':
             case 'doctor':
