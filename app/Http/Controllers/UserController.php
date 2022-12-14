@@ -30,6 +30,8 @@ class UserController extends Controller
             'dob' => 'date_format:Y-m-d|before:today',
             'professional_statement' => ['string', 'max:255', 'nullable'],
             'specialization_id' => ['integer'],
+            'fee' => ['integer'],
+            'salutation' => ['string', 'max:255'],
         ]);
 
         $user = auth()->user();
@@ -43,9 +45,13 @@ class UserController extends Controller
         if($user->roles->pluck('name')[0] == 'doctor') {
             $docData['professional_statement'] = $userData['professional_statement'] ?? "";
             $docData['specialization_id'] = $userData['specialization_id'] ?? "";
+            $docData['fee'] = $userData['fee'] ?? "";
+            $docData['salutation'] = $userData['salutation'] ?? "";
             $user->doctor->update($docData);
             unset($userData['professional_statement']);
             unset($userData['specialization_id']);
+            unset($userData['fee']);
+            unset($userData['salutation']);
         }
 
         if(isset($userData['image'])) {

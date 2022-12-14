@@ -201,7 +201,7 @@
                                 @role('doctor')
                                 <label>Salutation: </label>
                                 <div class="form-group position-relative has-icon-left">
-                                    <input type="text" name="username" value="{{ $user->doctor->salutation }}" class="form-control">
+                                    <input type="text" name="salutation" value="{{ $user->doctor->salutation }}" class="form-control">
                                     <div class="form-control-position">
                                         <i class="ft ft-activity"></i>
                                     </div>
@@ -258,7 +258,7 @@
 
                                 <label>Fee: </label>
                                 <div class="form-group position-relative has-icon-left">
-                                    <input type="number" name="fee" value="{{ $user->fee }}" class="form-control">
+                                    <input type="number" name="fee" value="{{ $user->doctor->fee }}" class="form-control">
                                     <div class="form-control-position">
                                         <i class="la la-money"></i>
                                     </div>

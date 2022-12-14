@@ -42,4 +42,4 @@
 <!-- END: Page JS-->
 
 <!-- timepicker -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<script src="{{ asset('assets/js/scripts/timepicker/timepicker.min.js') }}"></script>

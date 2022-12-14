@@ -164,7 +164,7 @@
                             </div>
                         </div>
                     @empty
-                        <h5 class="col text-danger">No reviews to me</h5>
+                        <h5 class="col text-danger">No Reviews Pending</h5>
                     @endforelse
                 </div>
             </div>

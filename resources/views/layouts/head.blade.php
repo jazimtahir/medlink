@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="apple-touch-icon" href="{{ asset('assets/images/ico/apple-icon-120.png') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/ico/favicon.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
 
     <!-- CSRF Token -->
@@ -45,6 +45,6 @@
     <!-- END: Custom CSS-->
 
     <!-- timepicker -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins/timepicker/timepicker.min.css') }}">
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 </head>
