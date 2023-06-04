@@ -34,20 +34,6 @@ class UserSeeder extends Seeder
         $user->assignRole(Role::findByName('admin'));
 
         $user = User::create([
-            'first_name' => 'Jazim',
-            'last_name' => 'Tahir',
-            'username' => 'jazim',
-            'email' => 'jazimtahir7@gmail.com',
-            'phone' => '03024881647',
-            'gender' => 'M',
-            'is_active' => 1,
-            'is_verified' => 1,
-            'password' => Hash::make('.'),
-            'dob' => now()->subYear(23),
-        ]);
-        $user->assignRole(Role::findByName('admin'));
-
-        $user = User::create([
             'first_name' => 'Doctor',
             'last_name' => 'User',
             'username' => 'doctor',
